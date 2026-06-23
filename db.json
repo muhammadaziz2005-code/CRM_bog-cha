@@ -1,0 +1,768 @@
+{
+  "kindergartens": [
+    {
+      "id": "k_1",
+      "nomi": "Yunusobod tumani 9-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yunusobod tumani, 12-daha, 2-uy",
+      "tuman": "Yunusobod",
+      "bolalar_soni": 141,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 958 93 79",
+      "holati": "faol"
+    },
+    {
+      "id": "k_2",
+      "nomi": "Chilonzor tumani 10-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Chilonzor tumani, 13-daha, 3-uy",
+      "tuman": "Chilonzor",
+      "bolalar_soni": 120,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 710 27 86",
+      "holati": "faol"
+    },
+    {
+      "id": "k_3",
+      "nomi": "Mirzo Ulug'bek tumani 11-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirzo Ulug'bek tumani, 14-daha, 4-uy",
+      "tuman": "Mirzo Ulug'bek",
+      "bolalar_soni": 100,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 997 56 14",
+      "holati": "faol"
+    },
+    {
+      "id": "k_4",
+      "nomi": "Uchtepa tumani 12-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Uchtepa tumani, 15-daha, 5-uy",
+      "tuman": "Uchtepa",
+      "bolalar_soni": 171,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 412 97 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_5",
+      "nomi": "Shayxontohur tumani 13-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Shayxontohur tumani, 16-daha, 6-uy",
+      "tuman": "Shayxontohur",
+      "bolalar_soni": 200,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 381 43 58",
+      "holati": "faol"
+    },
+    {
+      "id": "k_6",
+      "nomi": "Yakkasaroy tumani 14-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yakkasaroy tumani, 17-daha, 7-uy",
+      "tuman": "Yakkasaroy",
+      "bolalar_soni": 173,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 882 24 98",
+      "holati": "faol"
+    },
+    {
+      "id": "k_7",
+      "nomi": "Sergeli tumani 15-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Sergeli tumani, 18-daha, 8-uy",
+      "tuman": "Sergeli",
+      "bolalar_soni": 136,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 863 55 50",
+      "holati": "faol"
+    },
+    {
+      "id": "k_8",
+      "nomi": "Yashnobod tumani 16-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yashnobod tumani, 19-daha, 9-uy",
+      "tuman": "Yashnobod",
+      "bolalar_soni": 178,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 780 32 71",
+      "holati": "faol"
+    },
+    {
+      "id": "k_9",
+      "nomi": "Olmazor tumani 17-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Olmazor tumani, 20-daha, 10-uy",
+      "tuman": "Olmazor",
+      "bolalar_soni": 112,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 517 14 12",
+      "holati": "faol"
+    },
+    {
+      "id": "k_10",
+      "nomi": "Mirobod tumani 18-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirobod tumani, 21-daha, 11-uy",
+      "tuman": "Mirobod",
+      "bolalar_soni": 214,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 630 23 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_11",
+      "nomi": "Yunusobod tumani 19-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yunusobod tumani, 22-daha, 12-uy",
+      "tuman": "Yunusobod",
+      "bolalar_soni": 136,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 149 84 88",
+      "holati": "faol"
+    },
+    {
+      "id": "k_12",
+      "nomi": "Chilonzor tumani 20-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Chilonzor tumani, 23-daha, 13-uy",
+      "tuman": "Chilonzor",
+      "bolalar_soni": 99,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 613 94 19",
+      "holati": "faol"
+    },
+    {
+      "id": "k_13",
+      "nomi": "Mirzo Ulug'bek tumani 21-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirzo Ulug'bek tumani, 24-daha, 14-uy",
+      "tuman": "Mirzo Ulug'bek",
+      "bolalar_soni": 198,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 551 96 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_14",
+      "nomi": "Uchtepa tumani 22-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Uchtepa tumani, 25-daha, 15-uy",
+      "tuman": "Uchtepa",
+      "bolalar_soni": 195,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 419 45 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_15",
+      "nomi": "Shayxontohur tumani 23-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Shayxontohur tumani, 26-daha, 16-uy",
+      "tuman": "Shayxontohur",
+      "bolalar_soni": 160,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 579 89 65",
+      "holati": "faol"
+    },
+    {
+      "id": "k_16",
+      "nomi": "Yakkasaroy tumani 24-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yakkasaroy tumani, 27-daha, 17-uy",
+      "tuman": "Yakkasaroy",
+      "bolalar_soni": 173,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 695 15 35",
+      "holati": "faol"
+    },
+    {
+      "id": "k_17",
+      "nomi": "Sergeli tumani 25-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Sergeli tumani, 28-daha, 18-uy",
+      "tuman": "Sergeli",
+      "bolalar_soni": 160,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 686 50 97",
+      "holati": "faol"
+    },
+    {
+      "id": "k_18",
+      "nomi": "Yashnobod tumani 26-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yashnobod tumani, 29-daha, 19-uy",
+      "tuman": "Yashnobod",
+      "bolalar_soni": 218,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 788 95 45",
+      "holati": "faol"
+    },
+    {
+      "id": "k_19",
+      "nomi": "Olmazor tumani 27-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Olmazor tumani, 30-daha, 20-uy",
+      "tuman": "Olmazor",
+      "bolalar_soni": 99,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 951 60 71",
+      "holati": "faol"
+    },
+    {
+      "id": "k_20",
+      "nomi": "Mirobod tumani 28-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirobod tumani, 31-daha, 21-uy",
+      "tuman": "Mirobod",
+      "bolalar_soni": 127,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 927 45 55",
+      "holati": "faol"
+    },
+    {
+      "id": "k_21",
+      "nomi": "Yunusobod tumani 29-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yunusobod tumani, 32-daha, 22-uy",
+      "tuman": "Yunusobod",
+      "bolalar_soni": 171,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 892 78 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_22",
+      "nomi": "Chilonzor tumani 30-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Chilonzor tumani, 33-daha, 23-uy",
+      "tuman": "Chilonzor",
+      "bolalar_soni": 167,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 881 79 85",
+      "holati": "faol"
+    },
+    {
+      "id": "k_23",
+      "nomi": "Mirzo Ulug'bek tumani 31-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirzo Ulug'bek tumani, 34-daha, 24-uy",
+      "tuman": "Mirzo Ulug'bek",
+      "bolalar_soni": 194,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 948 77 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_24",
+      "nomi": "Uchtepa tumani 32-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Uchtepa tumani, 35-daha, 25-uy",
+      "tuman": "Uchtepa",
+      "bolalar_soni": 107,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 320 31 38",
+      "holati": "faol"
+    },
+    {
+      "id": "k_25",
+      "nomi": "Shayxontohur tumani 33-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Shayxontohur tumani, 36-daha, 26-uy",
+      "tuman": "Shayxontohur",
+      "bolalar_soni": 217,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 824 78 54",
+      "holati": "faol"
+    },
+    {
+      "id": "k_26",
+      "nomi": "Yakkasaroy tumani 34-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yakkasaroy tumani, 37-daha, 27-uy",
+      "tuman": "Yakkasaroy",
+      "bolalar_soni": 157,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 346 76 84",
+      "holati": "faol"
+    },
+    {
+      "id": "k_27",
+      "nomi": "Sergeli tumani 35-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Sergeli tumani, 38-daha, 28-uy",
+      "tuman": "Sergeli",
+      "bolalar_soni": 171,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 240 21 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_28",
+      "nomi": "Yashnobod tumani 36-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yashnobod tumani, 39-daha, 29-uy",
+      "tuman": "Yashnobod",
+      "bolalar_soni": 120,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 923 67 79",
+      "holati": "faol"
+    },
+    {
+      "id": "k_29",
+      "nomi": "Olmazor tumani 37-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Olmazor tumani, 40-daha, 30-uy",
+      "tuman": "Olmazor",
+      "bolalar_soni": 152,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 537 46 14",
+      "holati": "faol"
+    },
+    {
+      "id": "k_30",
+      "nomi": "Mirobod tumani 38-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirobod tumani, 41-daha, 31-uy",
+      "tuman": "Mirobod",
+      "bolalar_soni": 209,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 772 36 27",
+      "holati": "faol"
+    },
+    {
+      "id": "k_31",
+      "nomi": "Yunusobod tumani 39-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yunusobod tumani, 42-daha, 32-uy",
+      "tuman": "Yunusobod",
+      "bolalar_soni": 159,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 150 21 85",
+      "holati": "faol"
+    },
+    {
+      "id": "k_32",
+      "nomi": "Chilonzor tumani 40-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Chilonzor tumani, 43-daha, 33-uy",
+      "tuman": "Chilonzor",
+      "bolalar_soni": 206,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 578 96 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_33",
+      "nomi": "Mirzo Ulug'bek tumani 41-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Mirzo Ulug'bek tumani, 44-daha, 34-uy",
+      "tuman": "Mirzo Ulug'bek",
+      "bolalar_soni": 170,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 397 57 57",
+      "holati": "faol"
+    },
+    {
+      "id": "k_34",
+      "nomi": "Uchtepa tumani 42-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Uchtepa tumani, 45-daha, 35-uy",
+      "tuman": "Uchtepa",
+      "bolalar_soni": 172,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 432 50 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_35",
+      "nomi": "Shayxontohur tumani 43-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Shayxontohur tumani, 46-daha, 36-uy",
+      "tuman": "Shayxontohur",
+      "bolalar_soni": 127,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 505 16 65",
+      "holati": "faol"
+    },
+    {
+      "id": "k_36",
+      "nomi": "Yakkasaroy tumani 44-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yakkasaroy tumani, 47-daha, 37-uy",
+      "tuman": "Yakkasaroy",
+      "bolalar_soni": 197,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 707 30 49",
+      "holati": "faol"
+    },
+    {
+      "id": "k_37",
+      "nomi": "Sergeli tumani 45-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Sergeli tumani, 48-daha, 38-uy",
+      "tuman": "Sergeli",
+      "bolalar_soni": 137,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 584 65 32",
+      "holati": "faol"
+    },
+    {
+      "id": "k_38",
+      "nomi": "Yashnobod tumani 46-sonli maktabgacha ta'lim tashkiloti",
+      "manzili": "Yashnobod tumani, 49-daha, 39-uy",
+      "tuman": "Yashnobod",
+      "bolalar_soni": 201,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 477 58 41",
+      "holati": "faol"
+    }
+  ],
+  "admin_user": {
+    "id": "admin_1",
+    "f_i_sh": "Alisher Fayzullayev",
+    "login": "admin",
+    "parol": "admin",
+    "telefon_raqami": "+998 90 123 45 67",
+    "email": "alisher@crm.uz",
+    "profil_rasmi": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
+  },
+  "products": [
+    {
+      "id": "p_1",
+      "nomi": "Guruch",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 300,
+      "oxirgi_kelish_narxi": 16000
+    },
+    {
+      "id": "p_2",
+      "nomi": "Go'sht (Qiyma)",
+      "birligi": "kg",
+      "kategoriyasi": "Go'sht mahsulotlari",
+      "minimal_zahira_chegarasi": 400,
+      "oxirgi_kelish_narxi": 85000
+    },
+    {
+      "id": "p_3",
+      "nomi": "Un (1-nav)",
+      "birligi": "kg",
+      "kategoriyasi": "Un mahsulotlari",
+      "minimal_zahira_chegarasi": 500,
+      "oxirgi_kelish_narxi": 7200
+    },
+    {
+      "id": "p_4",
+      "nomi": "O'simlik yog'i",
+      "birligi": "litr",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 200,
+      "oxirgi_kelish_narxi": 15500
+    },
+    {
+      "id": "p_5",
+      "nomi": "Kartoshka",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 600,
+      "oxirgi_kelish_narxi": 4800
+    },
+    {
+      "id": "p_6",
+      "nomi": "Sabzi",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 250,
+      "oxirgi_kelish_narxi": 3500
+    },
+    {
+      "id": "p_7",
+      "nomi": "Piyoz",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 200,
+      "oxirgi_kelish_narxi": 3000
+    },
+    {
+      "id": "p_8",
+      "nomi": "Sut",
+      "birligi": "litr",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 300,
+      "oxirgi_kelish_narxi": 9000
+    },
+    {
+      "id": "p_9",
+      "nomi": "Shakar",
+      "birligi": "kg",
+      "kategoriyasi": "Shirinliklar",
+      "minimal_zahira_chegarasi": 250,
+      "oxirgi_kelish_narxi": 13200
+    },
+    {
+      "id": "p_10",
+      "nomi": "Tuxum",
+      "birligi": "dona",
+      "kategoriyasi": "Tuxum",
+      "minimal_zahira_chegarasi": 1000,
+      "oxirgi_kelish_narxi": 1200
+    },
+    {
+      "id": "",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Fanta",
+      "birligi": "litr",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    }
+  ],
+  "stock_in": [
+    {
+      "id": "si_1",
+      "mahsulot_id": "p_1",
+      "miqdor": 2500,
+      "birlik_narxi": 15500,
+      "jami_narx": 38750000,
+      "sana": "2026-06-15T09:00:00+05:00",
+      "yetkazib_beruvchi": "Agro-Impex LLC",
+      "izoh": "Oliy nav guruch qabul qilindi"
+    },
+    {
+      "id": "si_2",
+      "mahsulot_id": "p_2",
+      "miqdor": 1800,
+      "birlik_narxi": 83000,
+      "jami_narx": 149400000,
+      "sana": "2026-06-15T09:00:00+05:00",
+      "yetkazib_beruvchi": "G'ishtko'prik Go'sht Cluster",
+      "izoh": "Taz go'sht kirimi"
+    },
+    {
+      "id": "si_3",
+      "mahsulot_id": "p_3",
+      "miqdor": 3000,
+      "birlik_narxi": 7000,
+      "jami_narx": 21000000,
+      "sana": "2026-06-15T09:00:00+05:00",
+      "yetkazib_beruvchi": "Toshkent Don Kombinati",
+      "izoh": "Asosiy un zaxirasi"
+    },
+    {
+      "id": "si_4",
+      "mahsulot_id": "p_4",
+      "miqdor": 1000,
+      "birlik_narxi": 15000,
+      "jami_narx": 15000000,
+      "sana": "2026-06-18T14:30:00+05:00",
+      "yetkazib_beruvchi": "Yog'gar-Oltin",
+      "izoh": "Pista yog'i"
+    },
+    {
+      "id": "si_5",
+      "mahsulot_id": "p_5",
+      "miqdor": 4000,
+      "birlik_narxi": 4500,
+      "jami_narx": 18000000,
+      "sana": "2026-06-18T14:30:00+05:00",
+      "yetkazib_beruvchi": "Bosh-Dehqon",
+      "izoh": "Kartoshka saralangan"
+    },
+    {
+      "id": "si_6",
+      "mahsulot_id": "p_6",
+      "miqdor": 1500,
+      "birlik_narxi": 3200,
+      "jami_narx": 4800000,
+      "sana": "2026-06-18T14:30:00+05:00",
+      "yetkazib_beruvchi": "Sifat Agro",
+      "izoh": "Sariq sabzi"
+    },
+    {
+      "id": "si_7",
+      "mahsulot_id": "p_7",
+      "miqdor": 1200,
+      "birlik_narxi": 2800,
+      "jami_narx": 3360000,
+      "sana": "2026-06-18T14:30:00+05:00",
+      "yetkazib_beruvchi": "Sifat Agro",
+      "izoh": "Piyoz"
+    },
+    {
+      "id": "si_8",
+      "mahsulot_id": "p_8",
+      "miqdor": 2000,
+      "birlik_narxi": 8800,
+      "jami_narx": 17600000,
+      "sana": "2026-06-20T11:15:00+05:00",
+      "yetkazib_beruvchi": "Sergeli Sut Zavod",
+      "izoh": "Pasterizatsiyalangan sut"
+    },
+    {
+      "id": "si_9",
+      "mahsulot_id": "p_9",
+      "miqdor": 1500,
+      "birlik_narxi": 13000,
+      "jami_narx": 19500000,
+      "sana": "2026-06-20T11:15:00+05:00",
+      "yetkazib_beruvchi": "Xorazm Shakar",
+      "izoh": "Qop shakarlar"
+    },
+    {
+      "id": "si_10",
+      "mahsulot_id": "p_10",
+      "miqdor": 12000,
+      "birlik_narxi": 1100,
+      "jami_narx": 13200000,
+      "sana": "2026-06-20T11:15:00+05:00",
+      "yetkazib_beruvchi": "Uchqahramon Parranda",
+      "izoh": "1-nav tovuq tuxumi"
+    },
+    {
+      "id": "si_1782108777460",
+      "mahsulot_id": "p_10",
+      "miqdor": 1000,
+      "birlik_narxi": 1200,
+      "jami_narx": 1200000,
+      "sana": "2026-06-22T11:12:57+05:00",
+      "yetkazib_beruvchi": "SAVDO MCHJ",
+      "izoh": ""
+    },
+    {
+      "id": "si_1782124656638",
+      "mahsulot_id": "p_1",
+      "miqdor": 1000,
+      "birlik_narxi": 16000,
+      "jami_narx": 16000000,
+      "sana": "2026-06-22T15:37:36+05:00",
+      "yetkazib_beruvchi": "Sifat Agro",
+      "izoh": ""
+    }
+  ],
+  "deliveries": [
+    {
+      "id": "d_1",
+      "bogcha_id": "k_1",
+      "mahsulot_id": "p_1",
+      "miqdor": 60,
+      "sana": "2026-06-18T08:00:00+05:00",
+      "moshina_id": "v_2",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_2",
+      "bogcha_id": "k_1",
+      "mahsulot_id": "p_2",
+      "miqdor": 45,
+      "sana": "2026-06-18T08:30:00+05:00",
+      "moshina_id": "v_2",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_3",
+      "bogcha_id": "k_2",
+      "mahsulot_id": "p_1",
+      "miqdor": 50,
+      "sana": "2026-06-19T09:00:00+05:00",
+      "moshina_id": "v_3",
+      "ishchi_id": "w_2",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_4",
+      "bogcha_id": "k_2",
+      "mahsulot_id": "p_5",
+      "miqdor": 120,
+      "sana": "2026-06-19T09:15:00+05:00",
+      "moshina_id": "v_3",
+      "ishchi_id": "w_2",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_5",
+      "bogcha_id": "k_3",
+      "mahsulot_id": "p_3",
+      "miqdor": 80,
+      "sana": "2026-06-20T10:00:00+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_3",
+      "holati": "yolda"
+    },
+    {
+      "id": "d_6",
+      "bogcha_id": "k_4",
+      "mahsulot_id": "p_8",
+      "miqdor": 40,
+      "sana": "2026-06-21T11:09:14+05:00",
+      "moshina_id": "v_2",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_7",
+      "bogcha_id": "k_5",
+      "mahsulot_id": "p_10",
+      "miqdor": 300,
+      "sana": "2026-06-21T11:00:00+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_3",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_1782108579243",
+      "bogcha_id": "k_1",
+      "mahsulot_id": "p_1",
+      "miqdor": 2000,
+      "sana": "2026-06-22T11:09:39+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    },
+    {
+      "id": "d_1782108594584",
+      "bogcha_id": "k_1",
+      "mahsulot_id": "p_1",
+      "miqdor": 200,
+      "sana": "2026-06-22T11:09:54+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "v_1",
+      "nomi": "Isuzu NPR",
+      "davlat_raqami": "01 777 AAA",
+      "sigimi": 3500,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_1"
+    },
+    {
+      "id": "v_2",
+      "nomi": "Changan M-9",
+      "davlat_raqami": "01 123 BBB",
+      "sigimi": 1200,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_2"
+    },
+    {
+      "id": "v_3",
+      "nomi": "Chevrolet Damas",
+      "davlat_raqami": "01 456 CCC",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_3"
+    },
+    {
+      "id": "v_4",
+      "nomi": "Chevrolet Labo",
+      "davlat_raqami": "01 789 DDD",
+      "sigimi": 700,
+      "holati": "tamirda",
+      "biriktirilgan_haydovchi_id": ""
+    }
+  ],
+  "workers": [
+    {
+      "id": "w_1",
+      "f_i_sh": "Bobur Karimov",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 93 111 22 33",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_2",
+      "f_i_sh": "Sardor Olimov",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 94 444 55 66",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_3",
+      "f_i_sh": "Jasur Rahimov",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 99 777 88 99",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_4",
+      "f_i_sh": "Asror Ergashev",
+      "lavozimi": "Omborchi (Bosh)",
+      "telefon_raqami": "+998 90 222 33 44",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_5",
+      "f_i_sh": "Zafar To'rayev",
+      "lavozimi": "Menejer",
+      "telefon_raqami": "+998 91 333 44 55",
+      "ish_holati": "faol"
+    }
+  ]
+}
