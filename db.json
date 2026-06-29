@@ -1,0 +1,1014 @@
+{
+  "kindergartens": [
+    {
+      "id": "k_1",
+      "nomi": "1-DMMT",
+      "manzili": "Chortoq tumani, Koroskon shahri",
+      "tuman": "Chortoq",
+      "bolalar_soni": 355,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 958 93 79",
+      "holati": "faol"
+    },
+    {
+      "id": "k_2",
+      "nomi": "2-DMMT",
+      "manzili": "Chortoq tumani, Xazratishox",
+      "tuman": "Chortoq",
+      "bolalar_soni": 185,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 710 27 86",
+      "holati": "faol"
+    },
+    {
+      "id": "k_3",
+      "nomi": "3-DMMT",
+      "manzili": "Chortoq tumani, Alixon",
+      "tuman": "Chortoq",
+      "bolalar_soni": 220,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 997 56 14",
+      "holati": "faol"
+    },
+    {
+      "id": "k_4",
+      "nomi": "4-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 240,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 412 97 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_5",
+      "nomi": "5-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 185,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 381 43 58",
+      "holati": "faol"
+    },
+    {
+      "id": "k_6",
+      "nomi": "6-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 220,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 882 24 98",
+      "holati": "faol"
+    },
+    {
+      "id": "k_7",
+      "nomi": "7-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 240,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 863 55 50",
+      "holati": "faol"
+    },
+    {
+      "id": "k_8",
+      "nomi": "8-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 200,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 780 32 71",
+      "holati": "faol"
+    },
+    {
+      "id": "k_9",
+      "nomi": "9-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 200,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 517 14 12",
+      "holati": "faol"
+    },
+    {
+      "id": "k_10",
+      "nomi": "10-DMMT",
+      "manzili": "Chortoq tumani, Baqatashi",
+      "tuman": "Chortoq",
+      "bolalar_soni": 150,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 630 23 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_11",
+      "nomi": "11-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 145,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 149 84 88",
+      "holati": "faol"
+    },
+    {
+      "id": "k_12",
+      "nomi": "12-DMMT",
+      "manzili": "Chortoq tumani, Qoravoh",
+      "tuman": "Chortoq",
+      "bolalar_soni": 200,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 613 94 19",
+      "holati": "faol"
+    },
+    {
+      "id": "k_13",
+      "nomi": "13-DMMT",
+      "manzili": "Chortoq tumani, Kichkina sanatoriya",
+      "tuman": "Chortoq",
+      "bolalar_soni": 90,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 551 96 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_14",
+      "nomi": "14-DMMT",
+      "manzili": "Chortoq tumani, pastgi qorabog'",
+      "tuman": "Chortoq",
+      "bolalar_soni": 130,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 419 45 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_15",
+      "nomi": "15-DMMT",
+      "manzili": "Chortoq tumani, Bolon MFY",
+      "tuman": "Chortoq",
+      "bolalar_soni": 190,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 579 89 65",
+      "holati": "faol"
+    },
+    {
+      "id": "k_16",
+      "nomi": "16-DMMT",
+      "manzili": "Chortoq tumani, BaynalMinal MFY",
+      "tuman": "Chortoq",
+      "bolalar_soni": 220,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 695 15 35",
+      "holati": "faol"
+    },
+    {
+      "id": "k_17",
+      "nomi": "17-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 355,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 686 50 97",
+      "holati": "faol"
+    },
+    {
+      "id": "k_18",
+      "nomi": "18-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 125,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 788 95 45",
+      "holati": "faol"
+    },
+    {
+      "id": "k_19",
+      "nomi": "19-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 190,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 951 60 71",
+      "holati": "faol"
+    },
+    {
+      "id": "k_20",
+      "nomi": "20-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 230,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 927 45 55",
+      "holati": "faol"
+    },
+    {
+      "id": "k_21",
+      "nomi": "21-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 305,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 892 78 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_22",
+      "nomi": "22-DMMT",
+      "manzili": "Chortoq tumani, O'rikzor",
+      "tuman": "Chortoq",
+      "bolalar_soni": 265,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 881 79 85",
+      "holati": "faol"
+    },
+    {
+      "id": "k_23",
+      "nomi": "23-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 170,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 948 77 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_24",
+      "nomi": "24-DMMT",
+      "manzili": "Chortoq tumani, Muchum kocha",
+      "tuman": "Chortoq",
+      "bolalar_soni": 155,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 320 31 38",
+      "holati": "faol"
+    },
+    {
+      "id": "k_25",
+      "nomi": "25-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 180,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 824 78 54",
+      "holati": "faol"
+    },
+    {
+      "id": "k_26",
+      "nomi": "26-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 200,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 346 76 84",
+      "holati": "no-faol"
+    },
+    {
+      "id": "k_27",
+      "nomi": "27-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 235,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 240 21 80",
+      "holati": "faol"
+    },
+    {
+      "id": "k_28",
+      "nomi": "28-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 165,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 923 67 79",
+      "holati": "faol"
+    },
+    {
+      "id": "k_29",
+      "nomi": "29-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 160,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 537 46 14",
+      "holati": "faol"
+    },
+    {
+      "id": "k_30",
+      "nomi": "30-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 150,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 772 36 27",
+      "holati": "faol"
+    },
+    {
+      "id": "k_31",
+      "nomi": "31-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 140,
+      "masul_shaxs": "Zuhra Aliyeva",
+      "telefon_raqami": "+998 90 150 21 85",
+      "holati": "faol"
+    },
+    {
+      "id": "k_32",
+      "nomi": "32-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 205,
+      "masul_shaxs": "Nargiza Umarova",
+      "telefon_raqami": "+998 90 578 96 77",
+      "holati": "faol"
+    },
+    {
+      "id": "k_33",
+      "nomi": "33-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 100,
+      "masul_shaxs": "Madina Karimoava",
+      "telefon_raqami": "+998 90 397 57 57",
+      "holati": "faol"
+    },
+    {
+      "id": "k_34",
+      "nomi": "34-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 110,
+      "masul_shaxs": "Nilufar Dadajonova",
+      "telefon_raqami": "+998 90 432 50 22",
+      "holati": "faol"
+    },
+    {
+      "id": "k_35",
+      "nomi": "35-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 150,
+      "masul_shaxs": "Dilnoza Ahmedova",
+      "telefon_raqami": "+998 90 505 16 65",
+      "holati": "faol"
+    },
+    {
+      "id": "k_36",
+      "nomi": "36-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 170,
+      "masul_shaxs": "Aziza Raimova",
+      "telefon_raqami": "+998 90 707 30 49",
+      "holati": "faol"
+    },
+    {
+      "id": "k_37",
+      "nomi": "37-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 137,
+      "masul_shaxs": "Shahnoza Sobirova",
+      "telefon_raqami": "+998 90 584 65 32",
+      "holati": "no-faol"
+    },
+    {
+      "id": "k_38",
+      "nomi": "38-DMMT",
+      "manzili": "Chortoq tumani",
+      "tuman": "Chortoq",
+      "bolalar_soni": 210,
+      "masul_shaxs": "Shohida Olimova",
+      "telefon_raqami": "+998 90 477 58 41",
+      "holati": "faol"
+    }
+  ],
+  "admin_user": {
+    "id": "admin_1",
+    "f_i_sh": "Admin",
+    "login": "admin",
+    "parol": "admin",
+    "telefon_raqami": "+998 90 123 45 67",
+    "email": "alisher@crm.uz",
+    "profil_rasmi": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
+  },
+  "products": [
+    {
+      "id": "p_2",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Asal",
+      "birligi": "kg",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "id": "p_3",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Baliq",
+      "birligi": "kg",
+      "kategoriyasi": "Go'sht mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_4",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Bodring",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_6",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Vermishel",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_7",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Vanilin",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_8",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Goroh",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_10",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Grechka",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_11",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Guruch",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_12",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Xamirturush",
+      "birligi": "kg",
+      "kategoriyasi": "Un mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_13",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Yog'",
+      "birligi": "litr",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "id": "p_14",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Yong'oq",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_15",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Zira",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_16",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Kakao",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_17",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Qand upasi",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_18",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Karam",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_19",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Kartoshka",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_20",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Kefir",
+      "birligi": "litr",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_21",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Kraxmal",
+      "birligi": "kg",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_22",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Ko'pirtirgich",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_23",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Quritilgan-bulg'or",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_24",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Quritilgan-olxori",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_25",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Quritilgan-rayxon",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_26",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Lavlagi",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_27",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Behi",
+      "birligi": "kg",
+      "kategoriyasi": "Mevalar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_28",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Limon",
+      "birligi": "kg",
+      "kategoriyasi": "Mevalar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_29",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Mayiz",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_30",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Манная крупа",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_31",
+      "oxirgi_kelish_narxi": 85000,
+      "nomi": "Mol go'shti",
+      "birligi": "kg",
+      "kategoriyasi": "Go'sht mahsulotlari",
+      "minimal_zahira_chegarasi": 200
+    },
+    {
+      "id": "p_32",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Mosh",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_33",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Murabbo",
+      "birligi": "kg",
+      "kategoriyasi": "Shirinliklar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_34",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Namatak",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_35",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Non",
+      "birligi": "dona",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 500
+    },
+    {
+      "id": "p_36",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "No'xot",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_37",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Olma",
+      "birligi": "kg",
+      "kategoriyasi": "Mevalar",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "id": "p_38",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Oshqovoq",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_39",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Перловка",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_40",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Петрушка",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_41",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Piyoz",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_42",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Pishloq",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_43",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Повидло",
+      "birligi": "dona",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_44",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Sabzi",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_45",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Сариёг",
+      "birligi": "kg",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_46",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Smetana",
+      "birligi": "dona",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_47",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Сули ёрма",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_48",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Sut",
+      "birligi": "litr",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_49",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Сухо фрукт",
+      "birligi": "kg",
+      "kategoriyasi": "Mevalar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_50",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Тариқ ёрма",
+      "birligi": "kg",
+      "kategoriyasi": "Don mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_51",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Творог",
+      "birligi": "kg",
+      "kategoriyasi": "Sut mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_53",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Tomat",
+      "birligi": "dona",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_54",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Tuz",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_55",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Turp",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_56",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Tuxum",
+      "birligi": "dona",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "id": "p_57",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Un",
+      "birligi": "kg",
+      "kategoriyasi": "Un mahsulotlari",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_58",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Sarimsoq",
+      "birligi": "kg",
+      "kategoriyasi": "Sabzavotlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_59",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Choy",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_60",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Shakar",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_61",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Разрыхлитель",
+      "birligi": "kg",
+      "kategoriyasi": "Oziq-ovqatlar",
+      "minimal_zahira_chegarasi": 50
+    },
+    {
+      "id": "p_62",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Tovuq go'shti",
+      "birligi": "kg",
+      "kategoriyasi": "Go'sht mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "id": "",
+      "oxirgi_kelish_narxi": 0,
+      "nomi": "Qo'y go'shti",
+      "birligi": "kg",
+      "kategoriyasi": "Go'sht mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    },
+    {
+      "oxirgi_kelish_narxi": 0,
+      "id": "p_1782750154054",
+      "nomi": "Zaytun",
+      "birligi": "litr",
+      "kategoriyasi": "Yog' mahsulotlari",
+      "minimal_zahira_chegarasi": 100
+    }
+  ],
+  "stock_in": [
+    {
+      "id": "si_1782370868766",
+      "mahsulot_id": "p_31",
+      "miqdor": 500,
+      "birlik_narxi": 85000,
+      "jami_narx": 42500000,
+      "sana": "2026-06-25T12:01:08+05:00",
+      "yetkazib_beruvchi": "INSOF MEAT MCHJ",
+      "izoh": ""
+    }
+  ],
+  "deliveries": [
+    {
+      "id": "d_1782370915691",
+      "bogcha_id": "k_12",
+      "mahsulot_id": "p_31",
+      "miqdor": 50,
+      "sana": "2026-06-25T12:01:55+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "v_1",
+      "nomi": "Chevrolet Labo",
+      "davlat_raqami": "50 Q 315 MA",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_1"
+    },
+    {
+      "id": "v_2",
+      "nomi": "Chevrolet Labo",
+      "davlat_raqami": "50 115 UBA",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_2"
+    },
+    {
+      "id": "v_3",
+      "nomi": "Chevrolet Damas",
+      "davlat_raqami": "50 L 293 PA",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_3"
+    },
+    {
+      "id": "v_4",
+      "nomi": "Chevrolet Labo",
+      "davlat_raqami": "50 L 523 JB",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_5"
+    },
+    {
+      "id": "v_5",
+      "nomi": "CHevrolet Damas",
+      "davlat_raqami": "50 N 808 DB",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_12"
+    },
+    {
+      "id": "v_6",
+      "nomi": "Chevrolet Labo",
+      "davlat_raqami": "50 K 599 HB",
+      "sigimi": 550,
+      "holati": "bosh",
+      "biriktirilgan_haydovchi_id": "w_4"
+    }
+  ],
+  "workers": [
+    {
+      "id": "w_1",
+      "f_i_sh": "Dedaxanov Tursunpulot",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 94 302 09 30",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_2",
+      "f_i_sh": "Isaqov MuhammadSoli",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 94 496 76 19",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_3",
+      "f_i_sh": "Narzullayev Akmaljon",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 33 001 01 41",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_4",
+      "f_i_sh": "Abdullayev Boburjon",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 93 880 94 94",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_5",
+      "f_i_sh": "Habibullayev Islomjon",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 94 011 03 08",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_7",
+      "f_i_sh": "Narzullayev Bekzod",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 95 492 52 55",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_10",
+      "f_i_sh": "Narzullayev Nomonjon",
+      "lavozimi": "Omborchi (Bosh)",
+      "telefon_raqami": "+998 93 300 77 22",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_12",
+      "f_i_sh": "Narzullayev Doniyor",
+      "lavozimi": "Haydovchi",
+      "telefon_raqami": "+998 95 152 76 76",
+      "ish_holati": "faol"
+    },
+    {
+      "id": "w_13",
+      "f_i_sh": "Usmanov Sherzod",
+      "lavozimi": "Menejer",
+      "telefon_raqami": "+998 93 181 80 15",
+      "ish_holati": "faol"
+    }
+  ]
+}

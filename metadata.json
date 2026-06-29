@@ -1,0 +1,6 @@
+{
+  "name": "Bog'chalar Oziq-ovqat CRM",
+  "description": "38 ta bog'chaga oziq-ovqat yetkazib berish jarayonini boshqarish uchun to'liq funksional CRM tizimi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
