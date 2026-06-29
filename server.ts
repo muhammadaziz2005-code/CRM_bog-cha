@@ -26,7 +26,7 @@ function loadDB(): {
     // Generate Rich Seed Data
     const initialKindergartens: Kindergarten[] = Array.from({ length: 38 }, (_, i) => {
       const id = `k_${i + 1}`;
-      const tumans = ["Yunusobod", "Chilonzor", "Mirzo Ulug'bek", "Uchtepa", "Shayxontohur", "Yakkasaroy", "Sergeli", "Yashnobod", "Olmazor", "Mirobod"];
+      const tumans = ["Chortoq", "Yangiqo'rg'on", "Mirzo Ulug'bek", "Uchtepa", "Shayxontohur", "Yakkasaroy", "Sergeli", "Yashnobod", "Olmazor", "Mirobod"];
       const tuman = tumans[i % tumans.length];
       const nomi = `${tuman} tumani ${i + 9}-sonli maktabgacha ta'lim tashkiloti`;
       const masul_shaxslar = ["Madina Karimoava", "Nilufar Dadajonova", "Dilnoza Ahmedova", "Aziza Raimova", "Shahnoza Sobirova", "Shohida Olimova", "Zuhra Aliyeva", "Nargiza Umarova"];
@@ -129,7 +129,7 @@ function loadDB(): {
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
   app.use(express.json());
 
@@ -185,9 +185,12 @@ async function startServer() {
 
   app.post("/api/kindergartens", (req, res) => {
     const db = getDB();
+    // MUHIM: id eng oxirida turishi shart — shunda req.body ichida
+    // bo'sh "id" kelsa ham, u avtomatik generatsiya qilingan idni
+    // ustidan yozib yubora olmaydi.
     const newK: Kindergarten = {
-      id: "k_" + (Date.now()),
-      ...req.body
+      ...req.body,
+      id: "k_" + (Date.now())
     };
     db.kindergartens.push(newK);
     saveDB(db);
@@ -199,7 +202,7 @@ async function startServer() {
     const { id } = req.params;
     const index = db.kindergartens.findIndex(k => k.id === id);
     if (index !== -1) {
-      db.kindergartens[index] = { ...db.kindergartens[index], ...req.body };
+      db.kindergartens[index] = { ...db.kindergartens[index], ...req.body, id };
       saveDB(db);
       res.json(db.kindergartens[index]);
     } else {
@@ -225,10 +228,11 @@ async function startServer() {
 
   app.post("/api/products", (req, res) => {
     const db = getDB();
+    // MUHIM: id eng oxirida — req.body'dagi bo'sh id ustidan yozib yubormaydi
     const newP: Product = {
-      id: "p_" + (Date.now()),
       oxirgi_kelish_narxi: 0,
-      ...req.body
+      ...req.body,
+      id: "p_" + (Date.now())
     };
     db.products.push(newP);
     saveDB(db);
@@ -240,7 +244,7 @@ async function startServer() {
     const { id } = req.params;
     const index = db.products.findIndex(p => p.id === id);
     if (index !== -1) {
-      db.products[index] = { ...db.products[index], ...req.body };
+      db.products[index] = { ...db.products[index], ...req.body, id };
       saveDB(db);
       res.json(db.products[index]);
     } else {
@@ -410,9 +414,10 @@ async function startServer() {
 
   app.post("/api/vehicles", (req, res) => {
     const db = getDB();
+    // MUHIM: id eng oxirida — req.body'dagi bo'sh id ustidan yozib yubormaydi
     const newV: Vehicle = {
-      id: "v_" + (Date.now()),
       ...req.body,
+      id: "v_" + (Date.now()),
       sigimi: req.body.sigimi ? Number(req.body.sigimi) : undefined
     };
     db.vehicles.push(newV);
@@ -428,6 +433,7 @@ async function startServer() {
       db.vehicles[index] = { 
         ...db.vehicles[index], 
         ...req.body,
+        id,
         sigimi: req.body.sigimi ? Number(req.body.sigimi) : db.vehicles[index].sigimi
       };
       saveDB(db);
@@ -453,9 +459,10 @@ async function startServer() {
 
   app.post("/api/workers", (req, res) => {
     const db = getDB();
+    // MUHIM: id eng oxirida — req.body'dagi bo'sh id ustidan yozib yubormaydi
     const newW: Worker = {
-      id: "w_" + (Date.now()),
-      ...req.body
+      ...req.body,
+      id: "w_" + (Date.now())
     };
     db.workers.push(newW);
     saveDB(db);
@@ -467,7 +474,7 @@ async function startServer() {
     const { id } = req.params;
     const index = db.workers.findIndex(w => w.id === id);
     if (index !== -1) {
-      db.workers[index] = { ...db.workers[index], ...req.body };
+      db.workers[index] = { ...db.workers[index], ...req.body, id };
       saveDB(db);
       res.json(db.workers[index]);
     } else {

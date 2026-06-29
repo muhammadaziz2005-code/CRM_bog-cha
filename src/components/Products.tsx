@@ -38,7 +38,8 @@ export default function Products() {
     "Sabzavotlar",
     "Sut mahsulotlari",
     "Shirinliklar",
-    "Oziq-ovqatlar"
+    "Oziq-ovqatlar",
+    "Mevalar"
   ];
 
   const fetchProducts = async () => {
