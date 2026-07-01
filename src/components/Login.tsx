@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Lock, User, Eye, EyeOff, AlertCircle, Building2 } from "lucide-react";
 
@@ -154,7 +153,6 @@ export default function Login({ onLoginSuccess }: LoginProps) {
     </div>
   );
 }
-=======
 import { 
   LayoutDashboard, 
   Building2, 
@@ -292,4 +290,4 @@ export default function Sidebar({
     </>
   );
 }
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
+
