@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Plus, Search, Edit2, Trash2, X, AlertCircle, Truck, Calendar, ArrowRightCircle, User, CheckCircle2, Printer } from "lucide-react";
-import { Delivery, Kindergarten, Product, Vehicle, Worker, WarehouseStock } from "../types";
+import { Plus, Search, Edit2, Trash2, X, AlertCircle, Truck, Calendar, User, Printer, PackagePlus } from "lucide-react";
+import { Delivery, DeliveryItem, Kindergarten, Product, Vehicle, Worker, WarehouseStock } from "../types";
 import { formatTashkentDate, getLocalDateInputVal, inputValToTashkentISO, getTashkentISO } from "../utils";
 import ConfirmationModal from "./ConfirmationModal";
+
+// Forma ichida ishlatiladigan mahsulot qatori (miqdor bo'sh bo'lishi mumkin, shuning uchun input string)
+interface FormItem {
+  mahsulot_id: string;
+  miqdor: number;
+}
 
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState<Delivery[]>([]);
@@ -22,8 +28,7 @@ export default function Deliveries() {
   const [formData, setFormData] = useState({
     id: "",
     bogcha_id: "",
-    mahsulot_id: "",
-    miqdor: 0,
+    items: [{ mahsulot_id: "", miqdor: 0 }] as FormItem[],
     sana: "", // YYYY-MM-DD
     moshina_id: "",
     ishchi_id: "", // driver
@@ -82,8 +87,7 @@ export default function Deliveries() {
     setFormData({
       id: "",
       bogcha_id: firstK,
-      mahsulot_id: firstP,
-      miqdor: 20,
+      items: [{ mahsulot_id: firstP, miqdor: 20 }],
       sana: getLocalDateInputVal(nowTashkent),
       moshina_id: firstV,
       ishchi_id: firstD,
@@ -97,8 +101,9 @@ export default function Deliveries() {
     setFormData({
       id: d.id,
       bogcha_id: d.bogcha_id,
-      mahsulot_id: d.mahsulot_id,
-      miqdor: d.miqdor,
+      items: d.items.length > 0
+        ? d.items.map(it => ({ mahsulot_id: it.mahsulot_id, miqdor: it.miqdor }))
+        : [{ mahsulot_id: "", miqdor: 0 }],
       sana: getLocalDateInputVal(d.sana),
       moshina_id: d.moshina_id,
       ishchi_id: d.ishchi_id,
@@ -108,29 +113,94 @@ export default function Deliveries() {
     setIsFormOpen(true);
   };
 
-  // Find selected product available stock
-  const selectedProductStockObj = stocks.find(s => s.mahsulot_id === formData.mahsulot_id);
-  const availableStock = selectedProductStockObj ? selectedProductStockObj.joriy_miqdor : 0;
-  
-  // Is stock enough warning boolean
-  // If we are editing, we should add the original delivery quantity back to available for validation purposes
-  let originalQty = 0;
-  if (formData.id) {
+  // --- Mahsulot qatorlari bilan ishlash ---
+  const handleAddItemRow = () => {
+    // Hali tanlanmagan (formadagi mavjud qatorlarda ishlatilmagan) birinchi mahsulotni taklif qilamiz
+    const usedIds = formData.items.map(it => it.mahsulot_id);
+    const nextProduct = products.find(p => !usedIds.includes(p.id));
+    setFormData({
+      ...formData,
+      items: [...formData.items, { mahsulot_id: nextProduct?.id || "", miqdor: 0 }]
+    });
+  };
+
+  const handleRemoveItemRow = (index: number) => {
+    if (formData.items.length <= 1) return; // kamida bitta qator qolishi shart
+    setFormData({
+      ...formData,
+      items: formData.items.filter((_, i) => i !== index)
+    });
+  };
+
+  const handleItemChange = (index: number, field: "mahsulot_id" | "miqdor", value: string) => {
+    const updatedItems = formData.items.map((it, i) => {
+      if (i !== index) return it;
+      if (field === "mahsulot_id") return { ...it, mahsulot_id: value };
+      return { ...it, miqdor: Number(value) };
+    });
+    setFormData({ ...formData, items: updatedItems });
+  };
+
+  // Ombordagi joriy zaxira (shu mahsulot uchun)
+  const getCurrentStock = (mahsulot_id: string) => {
+    const stockObj = stocks.find(s => s.mahsulot_id === mahsulot_id);
+    return stockObj ? stockObj.joriy_miqdor : 0;
+  };
+
+  // Tahrirlash vaqtida, shu delivery avval shu mahsulotdan qancha olib ketgan bo'lsa,
+  // o'sha miqdorni joriy zaxiraga qaytarib qo'shib hisoblaymiz (chunki hali saqlanmagan)
+  const getOriginalQtyForProduct = (mahsulot_id: string) => {
+    if (!formData.id) return 0;
     const originalDel = deliveries.find(d => d.id === formData.id);
-    if (originalDel && originalDel.mahsulot_id === formData.mahsulot_id && originalDel.holati !== "bekor_qilindi") {
-      originalQty = originalDel.miqdor;
-    }
-  }
-  const isStockInsufficient = formData.miqdor > (availableStock + originalQty);
+    if (!originalDel || originalDel.holati === "bekor_qilindi") return 0;
+    return originalDel.items
+      .filter(it => it.mahsulot_id === mahsulot_id)
+      .reduce((sum, it) => sum + it.miqdor, 0);
+  };
+
+  // Forma ichida shu mahsulotdan jami nechta so'ralayotgani (bir nechta qatorda bo'lishi mumkin emas, lekin xavfsizlik uchun)
+  const getRequestedQtyForProduct = (mahsulot_id: string) => {
+    return formData.items
+      .filter(it => it.mahsulot_id === mahsulot_id)
+      .reduce((sum, it) => sum + (Number(it.miqdor) || 0), 0);
+  };
+
+  const isProductInsufficient = (mahsulot_id: string) => {
+    if (!mahsulot_id) return false;
+    const available = getCurrentStock(mahsulot_id) + getOriginalQtyForProduct(mahsulot_id);
+    const requested = getRequestedQtyForProduct(mahsulot_id);
+    return requested > available;
+  };
+
+  const hasAnyInsufficientStock = formData.items.some(it => it.mahsulot_id && isProductInsufficient(it.mahsulot_id));
+
+  // Bitta chiqimda bir xil mahsulot ikki marta tanlanishining oldini olish uchun tekshiruv
+  const hasDuplicateProducts = () => {
+    const ids = formData.items.map(it => it.mahsulot_id).filter(Boolean);
+    return new Set(ids).size !== ids.length;
+  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.bogcha_id || !formData.mahsulot_id || !formData.moshina_id || !formData.ishchi_id) {
-      setFormError("Barcha tanlovlarni to'ldiring: Bog'cha, mahsulot, moshina va ishchi majburiy!");
+
+    if (!formData.bogcha_id || !formData.moshina_id || !formData.ishchi_id) {
+      setFormError("Barcha tanlovlarni to'ldiring: Bog'cha, moshina va ishchi majburiy!");
       return;
     }
-    if (formData.miqdor <= 0) {
-      setFormError("Yetkazib berish miqdori musbat son bo'lishi shart!");
+
+    const validItems = formData.items.filter(it => it.mahsulot_id);
+    if (validItems.length === 0) {
+      setFormError("Kamida bitta mahsulot tanlanishi shart!");
+      return;
+    }
+
+    if (validItems.some(it => !it.miqdor || it.miqdor <= 0)) {
+      setFormError("Har bir mahsulot uchun miqdor musbat son bo'lishi shart!");
+      return;
+    }
+
+    if (hasDuplicateProducts()) {
+      setFormError("Bitta mahsulot ro'yxatda faqat bir marta bo'lishi kerak. Miqdorni bitta qatorga jamlang!");
       return;
     }
 
@@ -140,7 +210,11 @@ export default function Deliveries() {
       const method = isEdit ? "PUT" : "POST";
 
       const submissionData = {
-        ...formData,
+        bogcha_id: formData.bogcha_id,
+        items: validItems.map(it => ({ mahsulot_id: it.mahsulot_id, miqdor: Number(it.miqdor) })),
+        moshina_id: formData.moshina_id,
+        ishchi_id: formData.ishchi_id,
+        holati: formData.holati,
         sana: inputValToTashkentISO(formData.sana)
       };
 
@@ -183,20 +257,38 @@ export default function Deliveries() {
     }
   };
 
-  // Print a single delivery as a "Yuk xati" (waybill) document in a new tab
+  // Print a delivery (bir nechta mahsulotli bo'lishi mumkin) as a "Yuk xati" (waybill) document in a new tab
   const handlePrint = (
     d: Delivery,
     school?: Kindergarten,
-    product?: Product,
     vehicle?: Vehicle,
     driver?: Worker
   ) => {
     const printWindow = window.open("", "_blank", "width=800,height=900");
     if (!printWindow) return;
 
-    // Use price info if the product carries a last-known incoming price
-    const birlikNarxi = (product as any)?.oxirgi_kelish_narxi as number | undefined;
-    const jamiSumma = birlikNarxi ? birlikNarxi * d.miqdor : undefined;
+    const rows = d.items.map((it, idx) => {
+      const product = products.find(p => p.id === it.mahsulot_id);
+      const birlikNarxi = (product as any)?.oxirgi_kelish_narxi as number | undefined;
+      const jamiSumma = birlikNarxi ? birlikNarxi * it.miqdor : undefined;
+      return `
+              <tr>
+                <td>${idx + 1}</td>
+                <td>${product?.nomi ?? ""}</td>
+                <td>${product?.birligi ?? ""}</td>
+                <td>${it.miqdor.toLocaleString("uz-UZ")}</td>
+                <td>${birlikNarxi ? birlikNarxi.toLocaleString("uz-UZ") : ""}</td>
+                <td>${jamiSumma ? jamiSumma.toLocaleString("uz-UZ") : ""}</td>
+              </tr>`;
+    }).join("");
+
+    const jamiUmumiySumma = d.items.reduce((sum, it) => {
+      const product = products.find(p => p.id === it.mahsulot_id);
+      const birlikNarxi = (product as any)?.oxirgi_kelish_narxi as number | undefined;
+      return sum + (birlikNarxi ? birlikNarxi * it.miqdor : 0);
+    }, 0);
+
+    const emptyRowsCount = Math.max(0, 6 - d.items.length);
 
     printWindow.document.write(`
       <html>
@@ -211,6 +303,7 @@ export default function Deliveries() {
             table { width: 100%; border-collapse: collapse; margin-top: 18px; }
             th, td { border: 1px solid #000; padding: 7px; text-align: center; font-size: 12px; }
             th { background: #f0f0f0; }
+            tfoot td { font-weight: bold; text-align: right; }
             .footer { display: flex; justify-content: space-between; margin-top: 50px; }
             .sign-line { border-bottom: 1px solid #000; display: inline-block; width: 60%; margin-left: 8px; }
             @media print { button { display: none; } }
@@ -236,18 +329,17 @@ export default function Deliveries() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>${product?.nomi ?? ""}</td>
-                <td>${product?.birligi ?? ""}</td>
-                <td>${d.miqdor.toLocaleString("uz-UZ")}</td>
-                <td>${birlikNarxi ? birlikNarxi.toLocaleString("uz-UZ") : ""}</td>
-                <td>${jamiSumma ? jamiSumma.toLocaleString("uz-UZ") : ""}</td>
-              </tr>
-              ${Array.from({ length: 8 })
+              ${rows}
+              ${Array.from({ length: emptyRowsCount })
                 .map(() => "<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
                 .join("")}
             </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">Jami summa:</td>
+                <td>${jamiUmumiySumma ? jamiUmumiySumma.toLocaleString("uz-UZ") + " so'm" : ""}</td>
+              </tr>
+            </tfoot>
           </table>
 
           <div class="footer">
@@ -270,12 +362,14 @@ export default function Deliveries() {
   // Filter list
   const filteredDeliveries = deliveries.filter((d) => {
     const school = kindergartens.find(k => k.id === d.bogcha_id);
-    const product = products.find(p => p.id === d.mahsulot_id);
     const driver = workers.find(w => w.id === d.ishchi_id);
+    const productNames = d.items
+      .map(it => products.find(p => p.id === it.mahsulot_id)?.nomi || "")
+      .join(" ");
 
     const searchableText = [
       school?.nomi || "",
-      product?.nomi || "",
+      productNames,
       driver?.f_i_sh || "",
       d.id
     ].join(" ").toLowerCase();
@@ -373,7 +467,7 @@ export default function Deliveries() {
               <thead>
                 <tr className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-200">
                   <th className="px-6 py-4">Bog'cha (Qabul qiluvchi)</th>
-                  <th className="px-6 py-4">Mahsulot & Miqdor</th>
+                  <th className="px-6 py-4">Mahsulotlar & Miqdorlar</th>
                   <th className="px-6 py-4">Moshina & Haydovchi</th>
                   <th className="px-6 py-4">Ta'minot sanasi</th>
                   <th className="px-6 py-4">Yetkazib berish holati</th>
@@ -383,7 +477,6 @@ export default function Deliveries() {
               <tbody className="divide-y divide-gray-150 text-sm">
                 {currentItems.map((d) => {
                   const school = kindergartens.find(k => k.id === d.bogcha_id);
-                  const product = products.find(p => p.id === d.mahsulot_id);
                   const vehicle = vehicles.find(v => v.id === d.moshina_id);
                   const driver = workers.find(w => w.id === d.ishchi_id);
 
@@ -410,9 +503,18 @@ export default function Deliveries() {
                         <div className="text-xs text-gray-400 mt-0.5">{school ? `${school.tuman} tumani` : ""}</div>
                       </td>
                       <td className="px-6 py-4">
-                        <div className="font-semibold text-gray-800">{product ? product.nomi : "Mahsulot"}</div>
-                        <div className="text-xs font-bold text-orange-700 mt-0.5">
-                          -{d.miqdor.toLocaleString("uz-UZ")} {product?.birligi || "kg"}
+                        <div className="space-y-1 max-w-xs">
+                          {d.items.map((it, idx) => {
+                            const product = products.find(p => p.id === it.mahsulot_id);
+                            return (
+                              <div key={idx} className="flex items-center justify-between gap-2 text-xs">
+                                <span className="font-semibold text-gray-800 truncate">{product ? product.nomi : "Mahsulot"}</span>
+                                <span className="font-bold text-orange-700 whitespace-nowrap">
+                                  -{it.miqdor.toLocaleString("uz-UZ")} {product?.birligi || ""}
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
                       </td>
                       <td className="px-6 py-4 space-y-1">
@@ -439,7 +541,7 @@ export default function Deliveries() {
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
                           <button
-                            onClick={() => handlePrint(d, school, product, vehicle, driver)}
+                            onClick={() => handlePrint(d, school, vehicle, driver)}
                             className="rounded p-1.5 text-emerald-600 hover:bg-emerald-50 transition cursor-pointer"
                             title="Yuk xatini chop etish"
                           >
@@ -511,8 +613,8 @@ export default function Deliveries() {
       {/* Deliveries Form Modal */}
       {isFormOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-fade-in">
-          <div className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl transition-all border border-gray-100">
-            <div className="flex items-center justify-between bg-gray-50 px-6 py-4 border-b border-gray-100">
+          <div className="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl transition-all border border-gray-100 max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between bg-gray-50 px-6 py-4 border-b border-gray-100 shrink-0">
               <h3 className="text-lg font-bold text-gray-900 font-sans">
                 {formData.id ? "Yuk varaqasini tahrirlash" : "Yangi ta'minot chiqimi yaratish"}
               </h3>
@@ -524,7 +626,7 @@ export default function Deliveries() {
               </button>
             </div>
 
-            <form onSubmit={handleFormSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleFormSubmit} className="p-6 space-y-4 overflow-y-auto">
               {formError && (
                 <div className="flex items-center gap-2 rounded-lg bg-red-50 p-3.5 text-xs font-semibold text-red-700 border border-red-100">
                   <AlertCircle className="h-4.5 w-4.5 shrink-0" />
@@ -545,49 +647,6 @@ export default function Deliveries() {
                       <option key={k.id} value={k.id}>{k.nomi} ({k.bolalar_soni} ta bola)</option>
                     ))}
                   </select>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1">Taqsimlanadigan mahsulot *</label>
-                  <select
-                    value={formData.mahsulot_id}
-                    onChange={(e) => setFormData({ ...formData, mahsulot_id: e.target.value })}
-                    className="block w-full rounded-lg border border-slate-300 bg-white py-2.5 px-3 text-sm text-slate-950 focus:border-blue-500 outline-none"
-                  >
-                    <option value="">-- Mahsulotni tanlang --</option>
-                    {products.map((p) => (
-                      <option key={p.id} value={p.id}>{p.nomi} ({p.birligi})</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1">Yetkazib berish miqdori *</label>
-                  <input
-                    type="number"
-                    required
-                    min={1}
-                    value={formData.miqdor || ""}
-                    onChange={(e) => setFormData({ ...formData, miqdor: Number(e.target.value) })}
-                    className="block w-full rounded-lg border border-slate-300 bg-white py-2 px-3 text-sm text-slate-900 outline-none focus:border-blue-500"
-                  />
-                </div>
-
-                {/* Live Stock info check & Warnings */}
-                <div className="sm:col-span-2 rounded-xl bg-slate-50 border border-slate-200 p-3.5 space-y-1.5 flex flex-col justify-center">
-                  <div className="flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-semibold uppercase tracking-wider">Ombordagi mavjud joriy zaxira:</span>
-                    <span className="font-black text-slate-900">
-                      {availableStock.toLocaleString("uz-UZ")} {products.find(p => p.id === formData.mahsulot_id)?.birligi || ""}
-                    </span>
-                  </div>
-
-                  {isStockInsufficient && (
-                    <div className="flex items-center gap-2 rounded-lg bg-red-50 border border-red-100 p-2.5 text-[11px] font-bold text-red-700">
-                      <AlertCircle className="h-4 w-4 shrink-0" />
-                      <span>Ogohlantirish: Kiritilgan miqdor joriy zaxiradan ko'p!</span>
-                    </div>
-                  )}
                 </div>
 
                 <div>
@@ -642,6 +701,88 @@ export default function Deliveries() {
                     <option value="bekor_qilindi">BEKOR QILINDI</option>
                   </select>
                 </div>
+              </div>
+
+              {/* Mahsulotlar ro'yxati — bitta chiqimda bir nechta xil mahsulot */}
+              <div className="pt-2 border-t border-slate-100">
+                <div className="flex items-center justify-between mb-2 mt-3">
+                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Yetkaziladigan mahsulotlar *</label>
+                  <button
+                    type="button"
+                    onClick={handleAddItemRow}
+                    className="flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-xs font-bold text-blue-700 hover:bg-blue-100 transition cursor-pointer"
+                  >
+                    <PackagePlus className="h-3.5 w-3.5" />
+                    Yana mahsulot qo'shish
+                  </button>
+                </div>
+
+                <div className="space-y-2.5">
+                  {formData.items.map((item, index) => {
+                    const product = products.find(p => p.id === item.mahsulot_id);
+                    const available = getCurrentStock(item.mahsulot_id) + getOriginalQtyForProduct(item.mahsulot_id);
+                    const insufficient = item.mahsulot_id && isProductInsufficient(item.mahsulot_id);
+
+                    return (
+                      <div key={index} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                        <div className="flex items-start gap-2">
+                          <div className="flex-1">
+                            <select
+                              value={item.mahsulot_id}
+                              onChange={(e) => handleItemChange(index, "mahsulot_id", e.target.value)}
+                              className="block w-full rounded-lg border border-slate-300 bg-white py-2 px-2.5 text-sm text-slate-950 focus:border-blue-500 outline-none"
+                            >
+                              <option value="">-- Mahsulotni tanlang --</option>
+                              {products.map((p) => (
+                                <option key={p.id} value={p.id}>{p.nomi} ({p.birligi})</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div className="w-28">
+                            <input
+                              type="number"
+                              min={1}
+                              placeholder="Miqdor"
+                              value={item.miqdor || ""}
+                              onChange={(e) => handleItemChange(index, "miqdor", e.target.value)}
+                              className="block w-full rounded-lg border border-slate-300 bg-white py-2 px-2.5 text-sm text-slate-900 outline-none focus:border-blue-500"
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveItemRow(index)}
+                            disabled={formData.items.length <= 1}
+                            className="rounded-lg p-2 text-red-500 hover:bg-red-50 transition cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                            title="Qatorni olib tashlash"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </div>
+
+                        {item.mahsulot_id && (
+                          <div className="mt-2 flex items-center justify-between text-[11px]">
+                            <span className="text-slate-500 font-semibold">
+                              Ombordagi mavjud zaxira: <span className="text-slate-900 font-black">{available.toLocaleString("uz-UZ")} {product?.birligi || ""}</span>
+                            </span>
+                            {insufficient && (
+                              <span className="flex items-center gap-1 font-bold text-red-600">
+                                <AlertCircle className="h-3.5 w-3.5" />
+                                Zaxiradan ko'p!
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {hasAnyInsufficientStock && (
+                  <div className="mt-3 flex items-center gap-2 rounded-lg bg-red-50 border border-red-100 p-2.5 text-[11px] font-bold text-red-700">
+                    <AlertCircle className="h-4 w-4 shrink-0" />
+                    <span>Ogohlantirish: Ro'yxatdagi ba'zi mahsulotlar miqdori ombordagi joriy zaxiradan ko'p!</span>
+                  </div>
+                )}
               </div>
 
               <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">

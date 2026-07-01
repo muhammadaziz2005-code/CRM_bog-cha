@@ -39,11 +39,18 @@ export interface StockIn {
   izoh?: string;
 }
 
+// Bitta yetkazib berish (chiqim) ichidagi har bir mahsulot qatori
+export interface DeliveryItem {
+  mahsulot_id: string;
+  miqdor: number;
+}
+
+// Bitta moshina/haydovchi bitta bog'chaga bir nechta xil mahsulotni
+// bir vaqtda olib borishi mumkin, shuning uchun "items" massiv qilib saqlanadi.
 export interface Delivery {
   id: string;
   bogcha_id: string;
-  mahsulot_id: string;
-  miqdor: number;
+  items: DeliveryItem[];
   sana: string; // ISO 8601 with Tashkent timezone
   moshina_id: string;
   ishchi_id: string; // driver

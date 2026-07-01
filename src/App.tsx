@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
+import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Kindergartens from "./components/Kindergartens";
 import Products from "./components/Products";
@@ -15,22 +16,52 @@ export default function App() {
   const [adminUser, setAdminUser] = useState<any>(null);
   const [currentTab, setTab] = useState("dashboard");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
 
-  // Login endi yo'q — admin ma'lumotini faqat ko'rsatish (Sidebar/Profil) uchun yuklaymiz
+  // Check on startup if user is logged in
   useEffect(() => {
-    fetch("/api/auth/profile")
-      .then((res) => res.json())
-      .then((data) => setAdminUser(data))
-      .catch((err) => console.error("Admin profilini yuklashda xatolik:", err));
+    const savedUser = localStorage.getItem("food_crm_admin");
+    if (savedUser) {
+      setAdminUser(JSON.parse(savedUser));
+    }
+    setCheckingAuth(false);
   }, []);
 
+  const handleLoginSuccess = (user: any) => {
+    localStorage.setItem("food_crm_admin", JSON.stringify(user));
+    setAdminUser(user);
+    setTab("dashboard");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("food_crm_admin");
+    setAdminUser(null);
+  };
+
   const handleProfileUpdate = (updatedUser: any) => {
+    localStorage.setItem("food_crm_admin", JSON.stringify(updatedUser));
     setAdminUser(updatedUser);
   };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  if (checkingAuth) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#F1F5F9]">
+        <div className="flex flex-col items-center gap-2">
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-600 border-t-transparent"></div>
+          <p className="text-sm font-semibold text-slate-600">Tizim yuklanmoqda...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // If not logged in, force Login screen
+  if (!adminUser) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
 
   // Render components dynamically based on active tab
   const renderTabContent = () => {
@@ -67,6 +98,7 @@ export default function App() {
         currentTab={currentTab}
         setTab={setTab}
         adminUser={adminUser}
+        onLogout={handleLogout}
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
