@@ -153,12 +153,6 @@ export default function Sidebar({
           
           <button
             onClick={onLogout}
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-950/30 hover:text-red-300 transition-colors duration-150 cursor-pointer mt-3 border border-red-950/20"
-          >
-            <LogOut className="h-4 w-4 shrink-0" />
-
-          <button
-            onClick={onLogout}
             className="mt-3 flex w-full items-center gap-2 rounded-lg border border-red-900/30 px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-900/20"
           >
             <LogOut className="h-4 w-4" />
