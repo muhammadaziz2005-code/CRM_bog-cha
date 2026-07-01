@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
 import { Plus, Search, Edit2, Trash2, X, AlertCircle, Truck, Calendar, User, Printer, PackagePlus } from "lucide-react";
 import { Delivery, DeliveryItem, Kindergarten, Product, Vehicle, Worker, WarehouseStock } from "../types";
 import { formatTashkentDate, getLocalDateInputVal, inputValToTashkentISO, getTashkentISO } from "../utils";
@@ -10,26 +9,6 @@ interface FormItem {
   mahsulot_id: string;
   miqdor: number;
 }
-=======
-
-import { Plus, Search, Edit2, Trash2, X, AlertCircle, Truck, Calendar, User, Printer, PackagePlus } from "lucide-react";
-import { Delivery, DeliveryItem, Kindergarten, Product, Vehicle, Worker, WarehouseStock } from "../types";
-import { formatTashkentDate, getLocalDateInputVal, inputValToTashkentISO, getTashkentISO } from "../utils";
-import ConfirmationModal from "./ConfirmationModal";
-
-// Forma ichida ishlatiladigan mahsulot qatori (miqdor bo'sh bo'lishi mumkin, shuning uchun input string)
-interface FormItem {
-  mahsulot_id: string;
-  miqdor: number;
-}
-
-
-import { Plus, Search, Edit2, Trash2, X, AlertCircle, Truck, Calendar, ArrowRightCircle, User, CheckCircle2, Printer } from "lucide-react";
-import { Delivery, Kindergarten, Product, Vehicle, Worker, WarehouseStock } from "../types";
-import { formatTashkentDate, getLocalDateInputVal, inputValToTashkentISO, getTashkentISO } from "../utils";
-import ConfirmationModal from "./ConfirmationModal";
-
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState<Delivery[]>([]);
@@ -50,11 +29,6 @@ export default function Deliveries() {
     id: "",
     bogcha_id: "",
     items: [{ mahsulot_id: "", miqdor: 0 }] as FormItem[],
-<<<<<<< HEAD
-=======
-    mahsulot_id: "",
-    miqdor: 0,
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     sana: "", // YYYY-MM-DD
     moshina_id: "",
     ishchi_id: "", // driver
@@ -114,11 +88,6 @@ export default function Deliveries() {
       id: "",
       bogcha_id: firstK,
       items: [{ mahsulot_id: firstP, miqdor: 20 }],
-<<<<<<< HEAD
-=======
-      mahsulot_id: firstP,
-      miqdor: 20,
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
       sana: getLocalDateInputVal(nowTashkent),
       moshina_id: firstV,
       ishchi_id: firstD,
@@ -135,11 +104,6 @@ export default function Deliveries() {
       items: d.items.length > 0
         ? d.items.map(it => ({ mahsulot_id: it.mahsulot_id, miqdor: it.miqdor }))
         : [{ mahsulot_id: "", miqdor: 0 }],
-<<<<<<< HEAD
-=======
-      mahsulot_id: d.mahsulot_id,
-      miqdor: d.miqdor,
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
       sana: getLocalDateInputVal(d.sana),
       moshina_id: d.moshina_id,
       ishchi_id: d.ishchi_id,
@@ -187,67 +151,6 @@ export default function Deliveries() {
   // o'sha miqdorni joriy zaxiraga qaytarib qo'shib hisoblaymiz (chunki hali saqlanmagan)
   const getOriginalQtyForProduct = (mahsulot_id: string) => {
     if (!formData.id) return 0;
-<<<<<<< HEAD
-=======
-    const originalDel = deliveries.find(d => d.id === formData.id);
-    if (!originalDel || originalDel.holati === "bekor_qilindi") return 0;
-    return originalDel.items
-      .filter(it => it.mahsulot_id === mahsulot_id)
-      .reduce((sum, it) => sum + it.miqdor, 0);
-  };
-
-  // Forma ichida shu mahsulotdan jami nechta so'ralayotgani (bir nechta qatorda bo'lishi mumkin emas, lekin xavfsizlik uchun)
-  const getRequestedQtyForProduct = (mahsulot_id: string) => {
-    return formData.items
-      .filter(it => it.mahsulot_id === mahsulot_id)
-      .reduce((sum, it) => sum + (Number(it.miqdor) || 0), 0);
-  };
-
-  const isProductInsufficient = (mahsulot_id: string) => {
-    if (!mahsulot_id) return false;
-    const available = getCurrentStock(mahsulot_id) + getOriginalQtyForProduct(mahsulot_id);
-    const requested = getRequestedQtyForProduct(mahsulot_id);
-    return requested > available;
-  };
-
-  const hasAnyInsufficientStock = formData.items.some(it => it.mahsulot_id && isProductInsufficient(it.mahsulot_id));
-
-  // Bitta chiqimda bir xil mahsulot ikki marta tanlanishining oldini olish uchun tekshiruv
-  const hasDuplicateProducts = () => {
-    const ids = formData.items.map(it => it.mahsulot_id).filter(Boolean);
-    return new Set(ids).size !== ids.length;
-  };
-
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.bogcha_id || !formData.moshina_id || !formData.ishchi_id) {
-      setFormError("Barcha tanlovlarni to'ldiring: Bog'cha, moshina va ishchi majburiy!");
-      return;
-    }
-
-    const validItems = formData.items.filter(it => it.mahsulot_id);
-    if (validItems.length === 0) {
-      setFormError("Kamida bitta mahsulot tanlanishi shart!");
-      return;
-    }
-
-    if (validItems.some(it => !it.miqdor || it.miqdor <= 0)) {
-      setFormError("Har bir mahsulot uchun miqdor musbat son bo'lishi shart!");
-      return;
-    }
-
-    if (hasDuplicateProducts()) {
-      setFormError("Bitta mahsulot ro'yxatda faqat bir marta bo'lishi kerak. Miqdorni bitta qatorga jamlang!");
-  // Find selected product available stock
-  const selectedProductStockObj = stocks.find(s => s.mahsulot_id === formData.mahsulot_id);
-  const availableStock = selectedProductStockObj ? selectedProductStockObj.joriy_miqdor : 0;
-  
-  // Is stock enough warning boolean
-  // If we are editing, we should add the original delivery quantity back to available for validation purposes
-  let originalQty = 0;
-  if (formData.id) {
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     const originalDel = deliveries.find(d => d.id === formData.id);
     if (!originalDel || originalDel.holati === "bekor_qilindi") return 0;
     return originalDel.items
@@ -312,10 +215,6 @@ export default function Deliveries() {
         moshina_id: formData.moshina_id,
         ishchi_id: formData.ishchi_id,
         holati: formData.holati,
-<<<<<<< HEAD
-=======
-        ...formData,
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
         sana: inputValToTashkentISO(formData.sana)
       };
 
@@ -358,17 +257,7 @@ export default function Deliveries() {
     }
   };
 
-<<<<<<< HEAD
   // Print a delivery (bir nechta mahsulotli bo'lishi mumkin) as a "Yuk xati" (waybill) document in a new tab
-=======
-
-  // Print a delivery (bir nechta mahsulotli bo'lishi mumkin) as a "Yuk xati" (waybill) document in a new tab
-  const handlePrint = (
-    d: Delivery,
-    school?: Kindergarten,
-
-  // Print a single delivery as a "Yuk xati" (waybill) document in a new tab
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
   const handlePrint = (
     d: Delivery,
     school?: Kindergarten,
@@ -378,10 +267,6 @@ export default function Deliveries() {
     const printWindow = window.open("", "_blank", "width=800,height=900");
     if (!printWindow) return;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     const rows = d.items.map((it, idx) => {
       const product = products.find(p => p.id === it.mahsulot_id);
       const birlikNarxi = (product as any)?.oxirgi_kelish_narxi as number | undefined;
@@ -404,14 +289,6 @@ export default function Deliveries() {
     }, 0);
 
     const emptyRowsCount = Math.max(0, 6 - d.items.length);
-<<<<<<< HEAD
-=======
-
-    // Use price info if the product carries a last-known incoming price
-    const birlikNarxi = (product as any)?.oxirgi_kelish_narxi as number | undefined;
-    const jamiSumma = birlikNarxi ? birlikNarxi * d.miqdor : undefined;
->>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
     printWindow.document.write(`
       <html>
@@ -454,27 +331,6 @@ export default function Deliveries() {
             <tbody>
               ${rows}
               ${Array.from({ length: emptyRowsCount })
-<<<<<<< HEAD
-=======
-                .map(() => "<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
-                .join("")}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5">Jami summa:</td>
-                <td>${jamiUmumiySumma ? jamiUmumiySumma.toLocaleString("uz-UZ") + " so'm" : ""}</td>
-              </tr>
-            </tfoot>
-              <tr>
-                <td>1</td>
-                <td>${product?.nomi ?? ""}</td>
-                <td>${product?.birligi ?? ""}</td>
-                <td>${d.miqdor.toLocaleString("uz-UZ")}</td>
-                <td>${birlikNarxi ? birlikNarxi.toLocaleString("uz-UZ") : ""}</td>
-                <td>${jamiSumma ? jamiSumma.toLocaleString("uz-UZ") : ""}</td>
-              </tr>
-              ${Array.from({ length: 8 })
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
                 .map(() => "<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
                 .join("")}
             </tbody>
@@ -497,6 +353,7 @@ export default function Deliveries() {
         </body>
       </html>
     `);
+
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
@@ -505,18 +362,6 @@ export default function Deliveries() {
   // Filter list
   const filteredDeliveries = deliveries.filter((d) => {
     const school = kindergartens.find(k => k.id === d.bogcha_id);
-<<<<<<< HEAD
-=======
-    const driver = workers.find(w => w.id === d.ishchi_id);
-    const productNames = d.items
-      .map(it => products.find(p => p.id === it.mahsulot_id)?.nomi || "")
-      .join(" ");
-
-    const searchableText = [
-      school?.nomi || "",
-      productNames,
-    const product = products.find(p => p.id === d.mahsulot_id);
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     const driver = workers.find(w => w.id === d.ishchi_id);
     const productNames = d.items
       .map(it => products.find(p => p.id === it.mahsulot_id)?.nomi || "")
@@ -623,10 +468,6 @@ export default function Deliveries() {
                 <tr className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-200">
                   <th className="px-6 py-4">Bog'cha (Qabul qiluvchi)</th>
                   <th className="px-6 py-4">Mahsulotlar & Miqdorlar</th>
-<<<<<<< HEAD
-=======
-                  <th className="px-6 py-4">Mahsulot & Miqdor</th>
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
                   <th className="px-6 py-4">Moshina & Haydovchi</th>
                   <th className="px-6 py-4">Ta'minot sanasi</th>
                   <th className="px-6 py-4">Yetkazib berish holati</th>
@@ -674,12 +515,6 @@ export default function Deliveries() {
                               </div>
                             );
                           })}
-<<<<<<< HEAD
-=======
-                        <div className="font-semibold text-gray-800">{product ? product.nomi : "Mahsulot"}</div>
-                        <div className="text-xs font-bold text-orange-700 mt-0.5">
-                          -{d.miqdor.toLocaleString("uz-UZ")} {product?.birligi || "kg"}
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
                         </div>
                       </td>
                       <td className="px-6 py-4 space-y-1">
@@ -707,10 +542,6 @@ export default function Deliveries() {
                         <div className="flex justify-end gap-2">
                           <button
                             onClick={() => handlePrint(d, school, vehicle, driver)}
-<<<<<<< HEAD
-=======
-                            onClick={() => handlePrint(d, school, product, vehicle, driver)}
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
                             className="rounded p-1.5 text-emerald-600 hover:bg-emerald-50 transition cursor-pointer"
                             title="Yuk xatini chop etish"
                           >
@@ -784,11 +615,6 @@ export default function Deliveries() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-fade-in">
           <div className="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl transition-all border border-gray-100 max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between bg-gray-50 px-6 py-4 border-b border-gray-100 shrink-0">
-<<<<<<< HEAD
-=======
-          <div className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl transition-all border border-gray-100">
-            <div className="flex items-center justify-between bg-gray-50 px-6 py-4 border-b border-gray-100">
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
               <h3 className="text-lg font-bold text-gray-900 font-sans">
                 {formData.id ? "Yuk varaqasini tahrirlash" : "Yangi ta'minot chiqimi yaratish"}
               </h3>
@@ -799,13 +625,8 @@ export default function Deliveries() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-<<<<<<< HEAD
 
             <form onSubmit={handleFormSubmit} className="p-6 space-y-4 overflow-y-auto">
-=======
-            <form onSubmit={handleFormSubmit} className="p-6 space-y-4 overflow-y-auto">
-            <form onSubmit={handleFormSubmit} className="p-6 space-y-4">
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
               {formError && (
                 <div className="flex items-center gap-2 rounded-lg bg-red-50 p-3.5 text-xs font-semibold text-red-700 border border-red-100">
                   <AlertCircle className="h-4.5 w-4.5 shrink-0" />
@@ -881,6 +702,7 @@ export default function Deliveries() {
                   </select>
                 </div>
               </div>
+
               {/* Mahsulotlar ro'yxati — bitta chiqimda bir nechta xil mahsulot */}
               <div className="pt-2 border-t border-slate-100">
                 <div className="flex items-center justify-between mb-2 mt-3">
@@ -895,23 +717,6 @@ export default function Deliveries() {
                   </button>
                 </div>
 
-<<<<<<< HEAD
-              {/* Mahsulotlar ro'yxati — bitta chiqimda bir nechta xil mahsulot */}
-              <div className="pt-2 border-t border-slate-100">
-                <div className="flex items-center justify-between mb-2 mt-3">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Yetkaziladigan mahsulotlar *</label>
-                  <button
-                    type="button"
-                    onClick={handleAddItemRow}
-                    className="flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-2.5 py-1.5 text-xs font-bold text-blue-700 hover:bg-blue-100 transition cursor-pointer"
-                  >
-                    <PackagePlus className="h-3.5 w-3.5" />
-                    Yana mahsulot qo'shish
-                  </button>
-                </div>
-
-=======
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
                 <div className="space-y-2.5">
                   {formData.items.map((item, index) => {
                     const product = products.find(p => p.id === item.mahsulot_id);
@@ -979,10 +784,7 @@ export default function Deliveries() {
                   </div>
                 )}
               </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
               <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">
                 <button
                   type="button"
