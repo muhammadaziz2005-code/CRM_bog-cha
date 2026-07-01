@@ -393,7 +393,7 @@
   "products": [
     {
       "id": "p_2",
-      "oxirgi_kelish_narxi": 0,
+      "oxirgi_kelish_narxi": 1000,
       "nomi": "Asal",
       "birligi": "kg",
       "kategoriyasi": "Yog' mahsulotlari",
@@ -401,7 +401,7 @@
     },
     {
       "id": "p_3",
-      "oxirgi_kelish_narxi": 0,
+      "oxirgi_kelish_narxi": 1000,
       "nomi": "Baliq",
       "birligi": "kg",
       "kategoriyasi": "Go'sht mahsulotlari",
@@ -409,7 +409,7 @@
     },
     {
       "id": "p_4",
-      "oxirgi_kelish_narxi": 0,
+      "oxirgi_kelish_narxi": 1000,
       "nomi": "Bodring",
       "birligi": "kg",
       "kategoriyasi": "Sabzavotlar",
@@ -866,13 +866,33 @@
   ],
   "stock_in": [
     {
-      "id": "si_1782370868766",
-      "mahsulot_id": "p_31",
-      "miqdor": 500,
-      "birlik_narxi": 85000,
-      "jami_narx": 42500000,
-      "sana": "2026-06-25T12:01:08+05:00",
-      "yetkazib_beruvchi": "INSOF MEAT MCHJ",
+      "id": "si_1782905316861",
+      "mahsulot_id": "p_2",
+      "miqdor": 1000,
+      "birlik_narxi": 1000,
+      "jami_narx": 1000000,
+      "sana": "2026-07-01T16:28:36+05:00",
+      "yetkazib_beruvchi": "",
+      "izoh": ""
+    },
+    {
+      "id": "si_1782905352783",
+      "mahsulot_id": "p_3",
+      "miqdor": 1000,
+      "birlik_narxi": 1000,
+      "jami_narx": 1000000,
+      "sana": "2026-07-01T16:29:12+05:00",
+      "yetkazib_beruvchi": "",
+      "izoh": ""
+    },
+    {
+      "id": "si_1782905359772",
+      "mahsulot_id": "p_4",
+      "miqdor": 1000,
+      "birlik_narxi": 1000,
+      "jami_narx": 1000000,
+      "sana": "2026-07-01T16:29:19+05:00",
+      "yetkazib_beruvchi": "",
       "izoh": ""
     }
   ],
@@ -880,9 +900,35 @@
     {
       "id": "d_1782370915691",
       "bogcha_id": "k_12",
-      "mahsulot_id": "p_31",
-      "miqdor": 50,
       "sana": "2026-06-25T12:01:55+05:00",
+      "moshina_id": "v_1",
+      "ishchi_id": "w_1",
+      "holati": "yetkazildi",
+      "items": [
+        {
+          "mahsulot_id": "p_31",
+          "miqdor": 50
+        }
+      ]
+    },
+    {
+      "id": "d_1782905406783",
+      "bogcha_id": "k_1",
+      "items": [
+        {
+          "mahsulot_id": "p_2",
+          "miqdor": 20
+        },
+        {
+          "mahsulot_id": "p_3",
+          "miqdor": 300
+        },
+        {
+          "mahsulot_id": "p_4",
+          "miqdor": 200
+        }
+      ],
+      "sana": "2026-07-01T16:30:06+05:00",
       "moshina_id": "v_1",
       "ishchi_id": "w_1",
       "holati": "yetkazildi"

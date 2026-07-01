@@ -8,6 +8,7 @@ import {
   Users, 
   BarChart3, 
   UserCircle,
+  LogOut,
   FolderInput,
   Menu,
   X
@@ -17,6 +18,7 @@ interface SidebarProps {
   currentTab: string;
   setTab: (tab: string) => void;
   adminUser: any;
+  onLogout: () => void;
   isOpen: boolean;
   toggleSidebar: () => void;
 }
@@ -25,6 +27,7 @@ export default function Sidebar({
   currentTab, 
   setTab, 
   adminUser, 
+  onLogout,
   isOpen,
   toggleSidebar
 }: SidebarProps) {
@@ -105,7 +108,7 @@ export default function Sidebar({
           })}
         </nav>
 
-        {/* User Card at Bottom — faqat ma'lumot ko'rsatish uchun, chiqish tugmasi yo'q */}
+        {/* User Card at Bottom */}
         <div className="p-4 border-t border-slate-700 bg-slate-900/50 block shrink-0 mt-auto">
           <div className="flex items-center gap-3">
             <img 
@@ -119,6 +122,14 @@ export default function Sidebar({
               <span className="text-slate-500 text-[10px] block mt-0.5">Bosh Administrator</span>
             </div>
           </div>
+          
+          <button
+            onClick={onLogout}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-950/30 hover:text-red-300 transition-colors duration-150 cursor-pointer mt-3 border border-red-950/20"
+          >
+            <LogOut className="h-4 w-4 shrink-0" />
+            <span>Chiqish</span>
+          </button>
         </div>
       </aside>
     </>
