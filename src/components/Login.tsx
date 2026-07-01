@@ -178,26 +178,7 @@ interface SidebarProps {
   toggleSidebar: () => void;
 }
 
-export default function Sidebar({ 
-  currentTab, 
-  setTab, 
-  adminUser, 
-  onLogout,
-  isOpen,
-  toggleSidebar
-}: SidebarProps) {
-  const menuItems = [
-    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { id: "kindergartens", label: "Bog'chalar (38)", icon: Building2 },
-    { id: "products", label: "Mahsulotlar", icon: Package },
-    { id: "warehouse", label: "Ombor / Zahira", icon: Warehouse },
-    { id: "stock_in", label: "Mahsulot Kirimi", icon: ArrowDownCircle },
-    { id: "deliveries", label: "Yetkazib Berish", icon: Truck },
-    { id: "vehicles", label: "Moshinalar", icon: FolderInput },
-    { id: "workers", label: "Xodimlar", icon: Users },
-    { id: "reports", label: "Hisobotlar", icon: BarChart3 },
-    { id: "profile", label: "Profil", icon: UserCircle },
-  ];
+
 
   return (
     <>
