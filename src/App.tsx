@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
-<<<<<<< HEAD
 import Login from "./components/Login";
-=======
->>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+
 import Dashboard from "./components/Dashboard";
 import Kindergartens from "./components/Kindergartens";
 import Products from "./components/Products";
@@ -19,10 +17,9 @@ export default function App() {
   const [adminUser, setAdminUser] = useState<any>(null);
   const [currentTab, setTab] = useState("dashboard");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-<<<<<<< HEAD
   const [checkingAuth, setCheckingAuth] = useState(true);
 
-  // Check on startup if user is logged in
+  // Check on startup if user is logged in (localStorage'dan tez yuklash)
   useEffect(() => {
     const savedUser = localStorage.getItem("food_crm_admin");
     if (savedUser) {
@@ -30,6 +27,21 @@ export default function App() {
     }
     setCheckingAuth(false);
   }, []);
+
+  // Login qilingandan keyin profilni API orqali yangilab turish (background refresh)
+  useEffect(() => {
+    if (!adminUser) return;
+
+    fetch("/api/auth/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          localStorage.setItem("food_crm_admin", JSON.stringify(data));
+          setAdminUser(data);
+        }
+      })
+      .catch((err) => console.error("Admin profilini yuklashda xatolik:", err));
+  }, [adminUser?.id]);
 
   const handleLoginSuccess = (user: any) => {
     localStorage.setItem("food_crm_admin", JSON.stringify(user));
@@ -44,18 +56,6 @@ export default function App() {
 
   const handleProfileUpdate = (updatedUser: any) => {
     localStorage.setItem("food_crm_admin", JSON.stringify(updatedUser));
-=======
-
-  // Login endi yo'q — admin ma'lumotini faqat ko'rsatish (Sidebar/Profil) uchun yuklaymiz
-  useEffect(() => {
-    fetch("/api/auth/profile")
-      .then((res) => res.json())
-      .then((data) => setAdminUser(data))
-      .catch((err) => console.error("Admin profilini yuklashda xatolik:", err));
-  }, []);
-
-  const handleProfileUpdate = (updatedUser: any) => {
->>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
     setAdminUser(updatedUser);
   };
 
@@ -63,7 +63,6 @@ export default function App() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-<<<<<<< HEAD
   if (checkingAuth) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#F1F5F9]">
@@ -80,8 +79,6 @@ export default function App() {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
-=======
->>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
   // Render components dynamically based on active tab
   const renderTabContent = () => {
     switch (currentTab) {
@@ -117,10 +114,7 @@ export default function App() {
         currentTab={currentTab}
         setTab={setTab}
         adminUser={adminUser}
-<<<<<<< HEAD
         onLogout={handleLogout}
-=======
->>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
