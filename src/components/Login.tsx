@@ -145,7 +145,7 @@ export default function Login({ onLoginSuccess }: LoginProps) {
             Dastlabki kirish ma'lumotlari:{" "}
             <span className="font-mono font-semibold text-gray-600">admin</span>
             {" / "}
-            <span className="font-mono font-semibold text-gray-600">admin</span>
+            <span className="font-mono font-semibold text-gray-600">*****</span>
           </p>
         </div>
       </div>
