@@ -23,17 +23,11 @@ interface SidebarProps {
   toggleSidebar: () => void;
 }
 
-<<<<<<< HEAD
-export default function Sidebar({ 
-  currentTab, 
-  setTab, 
-  adminUser, 
-=======
+
 export default function Sidebar({
   currentTab,
   setTab,
   adminUser,
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
   onLogout,
   isOpen,
   toggleSidebar
@@ -129,14 +123,12 @@ export default function Sidebar({
           })}
         </nav>
 
-<<<<<<< HEAD
 
         {/* User Card at Bottom */}
         <div className="p-4 border-t border-slate-700 bg-slate-900/50 block shrink-0 mt-auto">
-=======
         {/* User Card */}
         <div className="mt-auto border-t border-slate-700 bg-slate-900/50 p-4">
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
+
           <div className="flex items-center gap-3">
             <img
               src={
@@ -157,21 +149,19 @@ export default function Sidebar({
               </span>
             </div>
           </div>
-<<<<<<< HEAD
+
           
           <button
             onClick={onLogout}
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-950/30 hover:text-red-300 transition-colors duration-150 cursor-pointer mt-3 border border-red-950/20"
           >
             <LogOut className="h-4 w-4 shrink-0" />
-=======
 
           <button
             onClick={onLogout}
             className="mt-3 flex w-full items-center gap-2 rounded-lg border border-red-900/30 px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-900/20"
           >
             <LogOut className="h-4 w-4" />
->>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
             <span>Chiqish</span>
           </button>
         </div>
