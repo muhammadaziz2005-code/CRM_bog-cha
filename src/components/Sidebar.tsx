@@ -125,40 +125,36 @@ export default function Sidebar({
 
 
         {/* User Card at Bottom */}
-        <div className="p-4 border-t border-slate-700 bg-slate-900/50 block shrink-0 mt-auto">
-        {/* User Card */}
-        <div className="mt-auto border-t border-slate-700 bg-slate-900/50 p-4">
+<div className="border-t border-slate-700 bg-slate-900/50 p-4 mt-auto">
+  <div className="flex items-center gap-3">
+    <img
+      src={
+        adminUser?.profil_rasmi ||
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
+      }
+      alt={adminUser?.f_i_sh}
+      className="h-10 w-10 rounded-full object-cover border-2 border-white"
+    />
 
-          <div className="flex items-center gap-3">
-            <img
-              src={
-                adminUser?.profil_rasmi ||
-                "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
-              }
-              alt={adminUser?.f_i_sh}
-              className="h-10 w-10 rounded-full object-cover border-2 border-white"
-            />
+    <div className="flex-1 min-w-0">
+      <h4 className="truncate text-xs font-bold text-white">
+        {adminUser?.f_i_sh || "Administrator"}
+      </h4>
 
-            <div className="flex-1 min-w-0">
-              <h4 className="truncate text-xs font-bold text-white">
-                {adminUser?.f_i_sh || "Administrator"}
-              </h4>
+      <span className="text-[10px] text-slate-500">
+        Bosh Administrator
+      </span>
+    </div>
+  </div>
 
-              <span className="text-[10px] text-slate-500">
-                Bosh Administrator
-              </span>
-            </div>
-          </div>
-
-          
-          <button
-            onClick={onLogout}
-            className="mt-3 flex w-full items-center gap-2 rounded-lg border border-red-900/30 px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-900/20"
-          >
-            <LogOut className="h-4 w-4" />
-            <span>Chiqish</span>
-          </button>
-        </div>
+  <button
+    onClick={onLogout}
+    className="mt-3 flex w-full items-center gap-2 rounded-lg border border-red-900/30 px-3 py-2 text-xs font-bold text-red-400 hover:bg-red-900/20 hover:text-red-300"
+  >
+    <LogOut className="h-4 w-4" />
+    <span>Chiqish</span>
+  </button>
+</div>
       </aside>
     </>
   );
