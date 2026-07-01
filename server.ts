@@ -2,7 +2,15 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
+<<<<<<< HEAD
 import { Kindergarten, AdminUser, Product, StockIn, Delivery, DeliveryItem, Vehicle, Worker } from "./src/types";
+=======
+<<<<<<< HEAD
+import { Kindergarten, AdminUser, Product, StockIn, Delivery, DeliveryItem, Vehicle, Worker } from "./src/types";
+=======
+import { Kindergarten, AdminUser, Product, StockIn, Delivery, Vehicle, Worker } from "./src/types";
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
 // Database File Path
 const DB_FILE = path.join(process.cwd(), "db.json");
@@ -102,6 +110,7 @@ function loadDB(): {
       { id: "si_10", mahsulot_id: "p_10", miqdor: 12000, birlik_narxi: 1100, jami_narx: 13200000, sana: baseDateString3, yetkazib_beruvchi: "Uchqahramon Parranda", izoh: "1-nav tovuq tuxumi" }
     ];
 
+<<<<<<< HEAD
 
     // Seed some deliveries to the first few kindergartens to show activity.
     // Endi bitta yetkazib berish (bitta moshina/haydovchi/sana/bog'cha) bir nechta
@@ -158,6 +167,75 @@ function loadDB(): {
         ishchi_id: "w_3",
         holati: "yetkazildi"
       }
+=======
+<<<<<<< HEAD
+    // Seed some deliveries to the first few kindergartens to show activity.
+    // Endi bitta yetkazib berish (bitta moshina/haydovchi/sana/bog'cha) bir nechta
+    // xil mahsulotni "items" massivi ichida saqlaydi.
+    const initialDeliveries: Delivery[] = [
+      {
+        id: "d_1",
+        bogcha_id: "k_1",
+        items: [
+          { mahsulot_id: "p_1", miqdor: 60 },
+          { mahsulot_id: "p_2", miqdor: 45 }
+        ],
+        sana: "2026-06-18T08:00:00+05:00",
+        moshina_id: "v_2",
+        ishchi_id: "w_1",
+        holati: "yetkazildi"
+      },
+      {
+        id: "d_2",
+        bogcha_id: "k_2",
+        items: [
+          { mahsulot_id: "p_1", miqdor: 50 },
+          { mahsulot_id: "p_5", miqdor: 120 }
+        ],
+        sana: "2026-06-19T09:00:00+05:00",
+        moshina_id: "v_3",
+        ishchi_id: "w_2",
+        holati: "yetkazildi"
+      },
+      {
+        id: "d_3",
+        bogcha_id: "k_3",
+        items: [{ mahsulot_id: "p_3", miqdor: 80 }],
+        sana: "2026-06-20T10:00:00+05:00",
+        moshina_id: "v_1",
+        ishchi_id: "w_3",
+        holati: "yolda"
+      },
+      {
+        id: "d_4",
+        bogcha_id: "k_4",
+        items: [{ mahsulot_id: "p_8", miqdor: 40 }],
+        sana: "2026-06-21T07:30:00+05:00",
+        moshina_id: "v_2",
+        ishchi_id: "w_1",
+        holati: "rejalashtirilgan"
+      },
+      {
+        id: "d_5",
+        bogcha_id: "k_5",
+        items: [{ mahsulot_id: "p_10", miqdor: 300 }],
+        sana: "2026-06-21T11:00:00+05:00",
+        moshina_id: "v_1",
+        ishchi_id: "w_3",
+        holati: "yetkazildi"
+      }
+=======
+    // Seed some deliveries to the first few kindergartens to show activity
+    const initialDeliveries: Delivery[] = [
+      { id: "d_1", bogcha_id: "k_1", mahsulot_id: "p_1", miqdor: 60, sana: "2026-06-18T08:00:00+05:00", moshina_id: "v_2", ishchi_id: "w_1", holati: "yetkazildi" },
+      { id: "d_2", bogcha_id: "k_1", mahsulot_id: "p_2", miqdor: 45, sana: "2026-06-18T08:30:00+05:00", moshina_id: "v_2", ishchi_id: "w_1", holati: "yetkazildi" },
+      { id: "d_3", bogcha_id: "k_2", mahsulot_id: "p_1", miqdor: 50, sana: "2026-06-19T09:00:00+05:00", moshina_id: "v_3", ishchi_id: "w_2", holati: "yetkazildi" },
+      { id: "d_4", bogcha_id: "k_2", mahsulot_id: "p_5", miqdor: 120, sana: "2026-06-19T09:15:00+05:00", moshina_id: "v_3", ishchi_id: "w_2", holati: "yetkazildi" },
+      { id: "d_5", bogcha_id: "k_3", mahsulot_id: "p_3", miqdor: 80, sana: "2026-06-20T10:00:00+05:00", moshina_id: "v_1", ishchi_id: "w_3", holati: "yolda" },
+      { id: "d_6", bogcha_id: "k_4", mahsulot_id: "p_8", miqdor: 40, sana: "2026-06-21T07:30:00+05:00", moshina_id: "v_2", ishchi_id: "w_1", holati: "rejalashtirilgan" },
+      { id: "d_7", bogcha_id: "k_5", mahsulot_id: "p_10", miqdor: 300, sana: "2026-06-21T11:00:00+05:00", moshina_id: "v_1", ishchi_id: "w_3", holati: "yetkazildi" }
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     ];
 
     const db = {
@@ -172,6 +250,10 @@ function loadDB(): {
     saveDB(db);
     return db;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
   const db = JSON.parse(fs.readFileSync(DB_FILE, "utf-8"));
 
@@ -197,6 +279,12 @@ function loadDB(): {
   }
 
   return db;
+<<<<<<< HEAD
+=======
+=======
+  return JSON.parse(fs.readFileSync(DB_FILE, "utf-8"));
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 }
 
 async function startServer() {
@@ -330,12 +418,22 @@ async function startServer() {
     const { id } = req.params;
     db.products = db.products.filter(p => p.id !== id);
     db.stock_in = db.stock_in.filter(s => s.mahsulot_id !== id);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     // Yetkazib berishlar endi items massivi ichida bo'lgani uchun,
     // faqat shu mahsulot bo'lgan qatorni olib tashlaymiz. Agar shu
     // delivery ichida boshqa mahsulot qolmasa, delivery butunlay o'chiriladi.
     db.deliveries = db.deliveries
       .map(d => ({ ...d, items: d.items.filter(it => it.mahsulot_id !== id) }))
       .filter(d => d.items.length > 0);
+<<<<<<< HEAD
+=======
+=======
+    db.deliveries = db.deliveries.filter(d => d.mahsulot_id !== id);
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     saveDB(db);
     res.json({ success: true, id });
   });
@@ -410,8 +508,16 @@ async function startServer() {
   });
 
   // DELIVERIES API (Chiqim / Yetkazib berishlar)
+<<<<<<< HEAD
   // Endi bitta yetkazib berish bir nechta xil mahsulotni ("items" massivi)
   // bitta bog'chaga, bitta moshina/haydovchi va sana bilan yetkazishi mumkin.
+=======
+<<<<<<< HEAD
+  // Endi bitta yetkazib berish bir nechta xil mahsulotni ("items" massivi)
+  // bitta bog'chaga, bitta moshina/haydovchi va sana bilan yetkazishi mumkin.
+=======
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
   app.get("/api/deliveries", (req, res) => {
     const db = getDB();
     res.json(db.deliveries);
@@ -419,6 +525,10 @@ async function startServer() {
 
   app.post("/api/deliveries", (req, res) => {
     const db = getDB();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
     const { bogcha_id, items, sana, moshina_id, ishchi_id, holati } = req.body;
 
     if (!Array.isArray(items) || items.length === 0) {
@@ -435,12 +545,30 @@ async function startServer() {
     if (cleanItems.length === 0) {
       return res.status(400).json({ message: "Kamida bitta mahsulot qo'shilishi shart!" });
     }
+<<<<<<< HEAD
+=======
 
     const newDelivery: Delivery = {
       id: "d_" + (Date.now()),
       bogcha_id,
       items: cleanItems,
       sana, // Client sends Uzbek date ISO
+=======
+    const { bogcha_id, mahsulot_id, miqdor, sana, moshina_id, ishchi_id, holati } = req.body;
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
+
+    const newDelivery: Delivery = {
+      id: "d_" + (Date.now()),
+      bogcha_id,
+<<<<<<< HEAD
+      items: cleanItems,
+      sana, // Client sends Uzbek date ISO
+=======
+      mahsulot_id,
+      miqdor: Number(miqdor),
+      sana,
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
       moshina_id,
       ishchi_id,
       holati: holati || "rejalashtirilgan"
@@ -469,6 +597,10 @@ async function startServer() {
     if (index !== -1) {
       const original = db.deliveries[index];
       const merged = { ...original, ...req.body };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
       if (Array.isArray(req.body.items)) {
         merged.items = req.body.items
@@ -482,6 +614,12 @@ async function startServer() {
       if (!merged.items || merged.items.length === 0) {
         return res.status(400).json({ message: "Kamida bitta mahsulot qo'shilishi shart!" });
       }
+<<<<<<< HEAD
+=======
+=======
+      merged.miqdor = Number(merged.miqdor);
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
       db.deliveries[index] = merged;
 
@@ -630,6 +768,7 @@ async function startServer() {
 
 
       // Total Chiqim (delivered or on-the-way counts as deducted from stock)
+<<<<<<< HEAD
       // Har bir delivery endi bir nechta mahsulotni o'z ichiga olgani uchun,
       // "items" massivi ichidan shu mahsulotga tegishli miqdorlarni yig'amiz.
       const totalOut = db.deliveries
@@ -638,11 +777,33 @@ async function startServer() {
           const productItems = d.items.filter(it => it.mahsulot_id === p.id);
           return sum + productItems.reduce((s, it) => s + it.miqdor, 0);
         }, 0);
+=======
+<<<<<<< HEAD
+      // Har bir delivery endi bir nechta mahsulotni o'z ichiga olgani uchun,
+      // "items" massivi ichidan shu mahsulotga tegishli miqdorlarni yig'amiz.
+      const totalOut = db.deliveries
+        .filter(d => d.holati !== "bekor_qilindi")
+        .reduce((sum, d) => {
+          const productItems = d.items.filter(it => it.mahsulot_id === p.id);
+          return sum + productItems.reduce((s, it) => s + it.miqdor, 0);
+        }, 0);
+=======
+      const totalOut = db.deliveries
+        .filter(d => d.mahsulot_id === p.id && d.holati !== "bekor_qilindi")
+        .reduce((sum, d) => sum + d.miqdor, 0);
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 
       const joriy_miqdor = Math.max(0, totalIn - totalOut);
 
       // Average Weekly Usage (from deliveries in the last 4 weeks or fallback to baseline)
       // Let's compute average weekly consumption
+<<<<<<< HEAD
+      const productDeliveryAmounts = db.deliveries
+        .filter(d => d.holati !== "bekor_qilindi")
+        .flatMap(d => d.items.filter(it => it.mahsulot_id === p.id).map(it => it.miqdor));
+=======
+<<<<<<< HEAD
       const productDeliveryAmounts = db.deliveries
         .filter(d => d.holati !== "bekor_qilindi")
         .flatMap(d => d.items.filter(it => it.mahsulot_id === p.id).map(it => it.miqdor));
@@ -653,6 +814,21 @@ async function startServer() {
         // Calculate weeks span, or count deliveries
         // Let's calculate total delivered and divide by actual weeks or fallback to a standard factor if too few weeks.
         const dAmounts = productDeliveryAmounts.reduce((sum, m) => sum + m, 0);
+=======
+      const productDeliveries = db.deliveries.filter(d => d.mahsulot_id === p.id && d.holati !== "bekor_qilindi");
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
+      
+      let ortacha_haftalik_sarf = baselineWeeklyTotals[p.id] || 100;
+
+      if (productDeliveryAmounts.length > 0) {
+        // Calculate weeks span, or count deliveries
+        // Let's calculate total delivered and divide by actual weeks or fallback to a standard factor if too few weeks.
+<<<<<<< HEAD
+        const dAmounts = productDeliveryAmounts.reduce((sum, m) => sum + m, 0);
+=======
+        const dAmounts = productDeliveries.reduce((sum, d) => sum + d.miqdor, 0);
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
         // If we have history, we can take average
         // Let's take the greater of the baseline and actual deliveries sum (or adjust to represent weekly average)
         // Since we loaded a few sample deliveries, let's treat actual deliveries as the last week's worth of usage,

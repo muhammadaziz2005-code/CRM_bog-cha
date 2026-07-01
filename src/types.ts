@@ -39,6 +39,10 @@ export interface StockIn {
   izoh?: string;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
 // Bitta yetkazib berish (chiqim) ichidagi har bir mahsulot qatori
 export interface DeliveryItem {
   mahsulot_id: string;
@@ -47,10 +51,24 @@ export interface DeliveryItem {
 
 // Bitta moshina/haydovchi bitta bog'chaga bir nechta xil mahsulotni
 // bir vaqtda olib borishi mumkin, shuning uchun "items" massiv qilib saqlanadi.
+<<<<<<< HEAD
 export interface Delivery {
   id: string;
   bogcha_id: string;
   items: DeliveryItem[];
+=======
+export interface Delivery {
+  id: string;
+  bogcha_id: string;
+  items: DeliveryItem[];
+=======
+export interface Delivery {
+  id: string;
+  bogcha_id: string;
+  mahsulot_id: string;
+  miqdor: number;
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
+>>>>>>> 03fdfd009a1d82af5ad42a838a65614ff4aa0ff6
   sana: string; // ISO 8601 with Tashkent timezone
   moshina_id: string;
   ishchi_id: string; // driver
@@ -86,4 +104,8 @@ export interface WarehouseStock {
   ortacha_haftalik_sarf: number;
   necha_haftaga_yetadi: number;
   nechta_bogchaga_yetadi: number;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 08b11818d07b20af74c0652e730ec080e8f8051d
