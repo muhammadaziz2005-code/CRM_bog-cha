@@ -257,14 +257,16 @@ export default function Deliveries() {
     }
   };
 
-  // Print a delivery (bir nechta mahsulotli bo'lishi mumkin) as a "Yuk xati" (waybill) document in a new tab
+  // Print a delivery (bir nechta mahsulotli bo'lishi mumkin) as a "Yuk xati" (waybill) document in a new tab.
+  // Haqiqiy qog'oz blank (накладная kitobchasi) kabi, bitta A4 listga gorizontal 2 ta bir xil
+  // nusxa (chapda — ombor nusxasi, o'ngda — qabul qiluvchi nusxasi) joylashtiriladi.
   const handlePrint = (
     d: Delivery,
     school?: Kindergarten,
     vehicle?: Vehicle,
     driver?: Worker
   ) => {
-    const printWindow = window.open("", "_blank", "width=800,height=900");
+    const printWindow = window.open("", "_blank", "width=1000,height=750");
     if (!printWindow) return;
 
     const rows = d.items.map((it, idx) => {
@@ -288,67 +290,89 @@ export default function Deliveries() {
       return sum + (birlikNarxi ? birlikNarxi * it.miqdor : 0);
     }, 0);
 
-    const emptyRowsCount = Math.max(0, 6 - d.items.length);
+    const emptyRowsCount = Math.max(0, 4 - d.items.length);
+
+    // Bitta nusxaning ichki HTML tarkibi (chap va o'ng ustunlar uchun aynan bir xil ishlatiladi)
+    const buildCopyHTML = (copyLabel: string) => `
+      <div class="copy">
+        <div class="copy-tag">${copyLabel}</div>
+        <div class="row"><span class="label">Korxona:</span><span class="line">Bog'cha ta'minoti markaziy ombori</span></div>
+        <h2>YUK XATI № ${d.id.slice(-6).toUpperCase()}</h2>
+        <div class="row"><span class="label">Sana:</span><span class="line">${formatTashkentDate(d.sana)}</span></div>
+        <div class="row"><span class="label">Qaerdan:</span><span class="line">Markaziy ombor</span></div>
+        <div class="row"><span class="label">Qaerga:</span><span class="line">${school ? `${school.nomi} (${school.tuman} tumani)` : ""}</span></div>
+        <div class="row"><span class="label">Kim orqali:</span><span class="line">${driver?.f_i_sh ?? ""} — ${vehicle ? `${vehicle.nomi} (${vehicle.davlat_raqami})` : ""}</span></div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Maxsulot nomi</th>
+              <th>Birligi</th>
+              <th>Soni</th>
+              <th>Narxi</th>
+              <th>Summasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+            ${Array.from({ length: emptyRowsCount })
+              .map(() => "<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+              .join("")}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">Jami summa:</td>
+              <td>${jamiUmumiySumma ? jamiUmumiySumma.toLocaleString("uz-UZ") : ""}</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="footer">
+          <div>Boshliq: <span class="sign-line"></span></div>
+        </div>
+        <div class="footer">
+          <div>Bosh xisobchi: <span class="sign-line"></span></div>
+        </div>
+        <div class="footer">
+          <div>Berdim: <span class="sign-line"></span></div>
+        </div>
+        <div class="footer">
+          <div>Oldim: <span class="sign-line"></span></div>
+        </div>
+      </div>`;
 
     printWindow.document.write(`
       <html>
         <head>
           <title>Yuk xati - ${d.id}</title>
           <style>
-            body { font-family: Arial, sans-serif; font-size: 13px; padding: 30px; color: #000; }
-            h2 { text-align: center; margin-bottom: 18px; }
-            .row { display: flex; margin: 8px 0; }
-            .label { font-weight: bold; margin-right: 6px; white-space: nowrap; }
-            .line { border-bottom: 1px solid #000; flex: 1; padding-bottom: 2px; }
-            table { width: 100%; border-collapse: collapse; margin-top: 18px; }
-            th, td { border: 1px solid #000; padding: 7px; text-align: center; font-size: 12px; }
+            @page { size: A4 portrait; margin: 10mm; }
+            * { box-sizing: border-box; }
+            body { font-family: Arial, sans-serif; font-size: 11px; color: #000; margin: 0; padding: 0; }
+            .sheet { display: flex; width: 100%; }
+            .copy { flex: 1; padding: 10px 12px; position: relative; }
+            .copy:first-child { border-right: 1px dashed #888; }
+            .copy-tag { position: absolute; top: 4px; right: 10px; font-size: 9px; font-weight: bold; color: #888; text-transform: uppercase; }
+            h2 { text-align: center; margin: 8px 0 10px; font-size: 14px; }
+            .row { display: flex; margin: 4px 0; }
+            .label { font-weight: bold; margin-right: 4px; white-space: nowrap; font-size: 10.5px; }
+            .line { border-bottom: 1px solid #000; flex: 1; padding-bottom: 1px; font-size: 10.5px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+            th, td { border: 1px solid #000; padding: 3px 4px; text-align: center; font-size: 9.5px; }
             th { background: #f0f0f0; }
             tfoot td { font-weight: bold; text-align: right; }
-            .footer { display: flex; justify-content: space-between; margin-top: 50px; }
-            .sign-line { border-bottom: 1px solid #000; display: inline-block; width: 60%; margin-left: 8px; }
-            @media print { button { display: none; } }
+            .footer { margin-top: 14px; font-size: 10px; display: flex; align-items: baseline; }
+            .sign-line { border-bottom: 1px solid #000; display: inline-block; width: 65%; margin-left: 6px; }
+            @media print {
+              button { display: none; }
+            }
           </style>
         </head>
         <body>
-          <div class="row"><span class="label">Korxona nomi:</span><span class="line">Bog'cha ta'minoti markaziy ombori</span></div>
-          <h2>YUK XATI № ${d.id.slice(-6).toUpperCase()}</h2>
-          <div class="row"><span class="label">Sana:</span><span class="line">${formatTashkentDate(d.sana)}</span></div>
-          <div class="row"><span class="label">Qaerdan:</span><span class="line">Markaziy ombor</span></div>
-          <div class="row"><span class="label">Qaerga:</span><span class="line">${school ? `${school.nomi} (${school.tuman} tumani)` : ""}</span></div>
-          <div class="row"><span class="label">Kim orqali:</span><span class="line">${driver?.f_i_sh ?? ""} — ${vehicle ? `${vehicle.nomi} (${vehicle.davlat_raqami})` : ""}</span></div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>№</th>
-                <th>Maxsulot nomi</th>
-                <th>O'lchov birligi</th>
-                <th>Soni</th>
-                <th>Narxi (so'm)</th>
-                <th>Summasi (so'm)</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${rows}
-              ${Array.from({ length: emptyRowsCount })
-                .map(() => "<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
-                .join("")}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5">Jami summa:</td>
-                <td>${jamiUmumiySumma ? jamiUmumiySumma.toLocaleString("uz-UZ") + " so'm" : ""}</td>
-              </tr>
-            </tfoot>
-          </table>
-
-          <div class="footer">
-            <div>Boshliq: <span class="sign-line"></span></div>
-            <div>Bosh xisobchi: <span class="sign-line"></span></div>
-          </div>
-          <div class="footer" style="margin-top:30px;">
-            <div>Berdim (${driver?.f_i_sh ?? ""}): <span class="sign-line"></span></div>
-            <div>Oldim: <span class="sign-line"></span></div>
+          <div class="sheet">
+            ${buildCopyHTML("Ombor nusxasi")}
+            ${buildCopyHTML("Qabul qiluvchi nusxasi")}
           </div>
         </body>
       </html>
