@@ -347,7 +347,7 @@ export default function Deliveries() {
         <head>
           <title>Yuk xati - ${d.id}</title>
           <style>
-            @page { size: A4 portrait; margin: 10mm; }
+            @page { margin: 10mm; }
             * { box-sizing: border-box; }
             body { font-family: Arial, sans-serif; font-size: 11px; color: #000; margin: 0; padding: 0; }
             .sheet { display: flex; width: 100%; }
